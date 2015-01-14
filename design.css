@@ -1,0 +1,135 @@
+@import url(http://fonts.googleapis.com/css?family=Nunito);
+
+html {
+	height:			100%;
+	overflow:		hidden;
+}
+
+body {
+	margin:				0;
+	padding:			0;
+	perspective:		1px;
+	transform-style: 	preserve-3d;
+	height:				100%;
+	overflow-y:			scroll;
+	overflow-x:			hidden;
+	font-family:		Nunito;
+}
+
+h1 {
+	font-size:			250%;
+	padding-top:		200px;
+}
+
+p {
+	font-size:			140%;
+	line-height:		150%;
+	color:				#333;
+}
+
+.slide {
+	position:			relative;
+	padding:			25vh 10%;
+	min-hright:			100vh;
+	width:				100vw;
+	box-sizing:			border-box;
+	box-shadow:			0 -1px 10px rgba(0, 0, 0, .7);
+	transform-style:	inherit;
+}
+
+img {
+	position:			absolute;
+	top:				50%;
+	left:				35%;
+	width:				320px;
+	height:				240px;
+	transform:			translateZ(.24px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+	padding:			10px;
+	border-radius:		5px;
+	background:			rgba(240, 230, 220, .7);
+	box-shadow:			0 0 8px rgba(0, 0, 0, .7);
+}
+
+img:last-of-type {
+	transform:			translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+}
+
+.slide:before {
+	content: 			"";
+	position:			absolute;
+	top:				0;
+	bottom:				0;
+	left:				0;
+	right:				0;
+}
+
+.slide:nth-child(2n) .title {
+	margin-left:		0;
+	margin-right:		auto;
+}
+
+.slide:nth-child(2n+1) .title {
+	margin-left:		auto;
+	margin-right:		0;
+}
+
+.slide, .slide:before {
+	background: 		50% 50% / cover;
+}
+
+.header {
+	text-align:			left;
+	font-size: 			175%;
+	color: 				#fff;
+	text-shadow:		0 10px 20px #FF3366;
+}
+
+#title {
+	background-image: 	url("http://www.pencilscoop.com/demos/backgrounds/Background2.jpg");
+	background-attachment: fixed;
+}
+
+#slide_1:before {
+	background-image:	url("http://wallpapers.windowsace.com/pics/a/b/abstract-computer-graphics-images-sargeraas-search-tech-222121-t-a-ibackgroundz.com.jpg");
+	transform:			translateZ(-1px) scale(2);
+	z-index:-1;
+}
+
+#slide_2 {
+	background-image:	url("http://images.fineartamerica.com/images-medium-large/6-space-image-generated-by-computer-graphics-stocktrek.jpg");
+	background-attachment: fixed;
+}
+
+#slide_3:before {
+	background-image:	url("http://images.fineartamerica.com/images-medium-large/6-space-image-generated-by-computer-graphics-stocktrek.jpg");
+	transform:			translateZ(-1px) scale(2);
+	z-index:-1;
+}
+
+#slide_4 {
+  background: #222;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
