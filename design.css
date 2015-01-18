@@ -89,19 +89,29 @@ img:last-of-type {
 	background-attachment: fixed;
 }
 
+div.box {
+	width:				60%;
+	margin:				10%;
+	padding:			20px;
+	background-color:	#66C2C2;
+	border: 			1px solid white;
+	opacity:			0.5;
+	filter:				alpha(opacity=50); /* IE */
+}
+
 #slide_1:before {
-	background-image:	url("http://wallpapers.windowsace.com/pics/a/b/abstract-computer-graphics-images-sargeraas-search-tech-222121-t-a-ibackgroundz.com.jpg");
+	background-image:	url("http://images.freepicturesweb.com/img1/18/03/5.jpg");
 	transform:			translateZ(-1px) scale(2);
 	z-index:-1;
 }
 
 #slide_2 {
-	background-image:	url("http://images.fineartamerica.com/images-medium-large/6-space-image-generated-by-computer-graphics-stocktrek.jpg");
+	background-image:	url("http://bigbackground.com/wp-content/uploads/2013/06/solid-neon-background-1024x1024.jpg");
 	background-attachment: fixed;
 }
 
 #slide_3:before {
-	background-image:	url("http://images.fineartamerica.com/images-medium-large/6-space-image-generated-by-computer-graphics-stocktrek.jpg");
+	background-image:	url("http://localhost/spanishgum/wind_rises.png");
 	transform:			translateZ(-1px) scale(2);
 	z-index:-1;
 }
@@ -110,11 +120,46 @@ img:last-of-type {
   background: #222;
 }
 
+#slide_4:before {
+	background-image:	url("http://localhost/spanishgum/wind_rises.png");
+	transform:			translateZ(-1px) scale(2);
+	z-index:-1;
+}
 
+.btn-outline {
+    margin-top: 15px;
+    border: solid 2px #fff;
+    font-size: 20px;
+    color: #fff;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
 
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
+    border: solid 2px #fff;
+    color: #18bc9c;
+    background: #fff;
+}
 
+.btn-social {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 45px;
+}
 
-
+.btn:focus,
+.btn:active,
+.btn.active {
+    outline: 0;
+}
 
 
 
