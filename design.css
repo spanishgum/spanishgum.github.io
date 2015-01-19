@@ -18,7 +18,7 @@ body {
 
 h1 {
 	font-size:			250%;
-	padding-top:		200px;
+	padding-top:		50px;
 }
 
 p {
@@ -93,38 +93,44 @@ div.box {
 	width:				60%;
 	margin:				10%;
 	padding:			20px;
+	background-repeat:	no-repeat;
+	background-size:	auto;
 	background-color:	#66C2C2;
-	border: 			1px solid white;
+	border: 			2px solid white;
 	opacity:			0.5;
-	filter:				alpha(opacity=50); /* IE */
+	filter: 			blur(1px);
+	-webkit-filter: 	blur(1px);
+	-moz-filter: 		blur(1px);
+	filter: 			url('/media/blur.svg#blur'); /* for Firefox */
+}
+
+div.content {
+	filter:				none;
+	-webkit-filter: 	none;
+	-moz-filter: 		none;
 }
 
 #slide_1:before {
-	background-image:	url("http://images.freepicturesweb.com/img1/18/03/5.jpg");
+	background-image:	url("http://p1.pichost.me/i/10/1333648.jpg");
 	transform:			translateZ(-1px) scale(2);
 	z-index:-1;
 }
 
 #slide_2 {
-	background-image:	url("http://bigbackground.com/wp-content/uploads/2013/06/solid-neon-background-1024x1024.jpg");
+	background-image:	url("http://www.helloworldblog.com/photo/pl3980120-platinum_artificial_quartz_stone_countertop_slab_flooring_tiles_for_kitchen.jpg");
 	background-attachment: fixed;
 }
 
 #slide_3:before {
-	background-image:	url("http://localhost/spanishgum/wind_rises.png");
+	background-image:	url("http://images.freepicturesweb.com/img1/18/03/5.jpg");
 	transform:			translateZ(-1px) scale(2);
 	z-index:-1;
 }
 
 #slide_4 {
-  background: #222;
+  background-image: url("");
 }
 
-#slide_4:before {
-	background-image:	url("http://localhost/spanishgum/wind_rises.png");
-	transform:			translateZ(-1px) scale(2);
-	z-index:-1;
-}
 
 .btn-outline {
     margin-top: 15px;
