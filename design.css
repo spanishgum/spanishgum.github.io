@@ -97,7 +97,7 @@ div.box {
 	background-size:	auto;
 	background-color:	#66C2C2;
 	border: 			2px solid white;
-	opacity:			0.35;
+	opacity:			0.15;
 	filter: 			blur(1px);
 	-webkit-filter: 	blur(0px);
 	-moz-filter: 		blur(0px);
