@@ -130,7 +130,11 @@ div.content {
 }
 
 #slide_4 {
-  background-image: 			url("");
+  	background-image: 		url("");
+}
+
+#social_buttons {
+	text-align: 			center;
 }
 
 
