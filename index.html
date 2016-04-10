@@ -37,6 +37,15 @@
 	</div>
 </div>
 
+<script>
+	var testCanvas = document.getElementById("testCanvas");
+	var testContext = testCanvas.getContext("2d");
+	testContext.beginPath();
+	testContext.arc(300, 50, 0, 2*Math.PI);
+	testContext.fillStyle = "red";
+	testContext.fill();
+</script>
+
 <div id="slide_3" class="slide">
 	<div class="box"><div class="content">
 		<canvas id="testCanvas">Canvas not supported . . .</canvas>
