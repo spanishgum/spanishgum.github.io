@@ -84,7 +84,7 @@ img:last-of-type {
     text-shadow:            0 10px 20px #FF3366;
 }
 
-#title {
+#title:before {
     background-image:         url("images/Title.jpg");
     background-attachment:         fixed;
 }
@@ -118,7 +118,7 @@ div.content {
     z-index:-1;
 }
 
-#slide_2 {
+#fence {
     background-image:        url("images/Dirt.jpg");
     background-attachment:         fixed;
 }
