@@ -40,6 +40,14 @@
              <section id="main_content">
                 {{ content }}
              </section>
+            <center>
+            <div class="container">
+                <svg id="chart" viewBox="0 0 960 500"
+                    preserveAspectRatio="xMidYMid meet"
+                    class="svg-content-responsive">
+                </svg>
+            </div>
+            </center>
         </div>
 
         {% if site.google_analytics %}
@@ -56,14 +64,7 @@
         </script>
         {% endif %}
 
-        <center>
-        <div class="container">
-            <svg id="chart" viewBox="0 0 960 500"
-                preserveAspectRatio="xMidYMid meet"
-                class="svg-content-responsive">
-            </svg>
-        </div>
-        </center>
+        
 
         <footer>
         <ul>

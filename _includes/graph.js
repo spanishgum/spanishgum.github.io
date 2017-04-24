@@ -59,17 +59,16 @@ var get_matches = function(json) {
             //    .html(nodedump(Object.assign({}, json.details, json.params, source_counts)));
         });;
     
-    if (navigator.userAgent.includes("Mozilla")) {
-        var w = vis.property('width')['animVal']['value'],
-            h = vis.property('height')['animVal']['value'];
-    }
-    else {
-        var w = document.getElementById('chart').clientWidth,
-            h = document.getElementById('chart').clientHeight;
-    }
-
-    console.log(w);
-    console.log(h);
+//    if (navigator.userAgent.includes("Mozilla")) {
+//        var w = vis.property('width')['animVal']['value'],
+//            h = vis.property('height')['animVal']['value'];
+//    }
+//    else {
+//        var w = document.getElementById('chart').clientWidth,
+//            h = document.getElementById('chart').clientHeight;
+//    }
+    var w = 0,
+        h = 0;
     
     if (w == 0) {
         w = 960;
