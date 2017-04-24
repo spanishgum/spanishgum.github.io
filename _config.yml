@@ -8,8 +8,8 @@ twitter: spanishgum
 linkedin: adam-stallard-4351b76a/
 google: u/0/+AdamStallard
 jsheadarr:
-- /_includes/jquery.min.js
-- /_includes/d3.min.js
+- jquery.min.js
+- d3.min.js
 jsfootarr:
-- /_includes/jquery.tipsy.js
-- /_includes/graph.js
+- jquery.tipsy.js
+- graph.js
