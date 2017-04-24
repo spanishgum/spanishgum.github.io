@@ -22,10 +22,6 @@
           {% endif %}
           <a href="https://github.com/spanishgum/" class="btn btn-github"><span class="icon"></span>GitHub</a>
           <a href="https://github.com/spanishgum/spanishgum.github.io/blob/master/resume.pdf" class="btn btn-github"><span class="icon"></span>Resume</a>
-          <a href="https://twitter.com/{{ site.twitter_username }}" class="btn btn-github"><span class="icon"></span>Twitter</a>
-          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="btn btn-github"><span class="icon"></span>LinkedIn</a>
-          <a href="https://plus.google.com/{{ site.google_plus_username }}" class="btn btn-github"><span class="icon"></span>Google+</a>
-          <a href="https://www.facebook.com/{{ site.facebook_username }}" class="btn btn-github"><span class="icon"></span>Facebook</a>
         </section>
       </div>
     </header>
@@ -48,5 +44,31 @@
         } catch(err) {}
       </script>
     {% endif %}
+
+    <footer>
+    <ul>
+       {% if site.twitter %}
+       <li>
+          <a href="https://twitter.com/{{ site.twitter_username }}"><i class="fa fa-twitter></i> Twitter</a>
+       </li>
+       {% endif %}
+       {% if site.linkedin %}
+       <li>
+          <a href="https://linkedin.com/in/{{ site.linkedin_username }}"><i class="fa fa-linkedin></i> LinkedIn</a>
+       </li>
+       {% endif %}
+       {% if site.google %}
+       <li>
+          <a href="https://plus.google.com/{{ site.google_plus_username }}"><i class="fa fa-google-plus></i> Google+</a>
+       </li>
+       {% endif %}
+       {% if site.facebook %}
+       <li>
+          <a href="https://www.facebook.com/{{ site.facebook_username }}"><i class="fa fa-facebook></i> Facebook</a>
+       </li>
+       {% endif %}
+    </ul>
+    </footer>
+
   </body>
 </html>
