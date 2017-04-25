@@ -89,7 +89,7 @@ var get_matches = function(json) {
 
 
     var force = d3.layout.force()
-        .size([w, h]).charge(-1 / k)
+        .size([w, h]).charge(-0.5 / k)
         .linkDistance(30);
 
     var link = vis.selectAll("line.link")
@@ -124,7 +124,7 @@ var get_matches = function(json) {
         .attr("class", "node")
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
-        .attr("r", 1.5)
+        .attr("r", 2.5)
         .style("fill", function(d) { return fill(d.group); })
         .call(force.drag)
         .on("mouseover", function(d,i) {
