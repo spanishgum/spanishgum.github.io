@@ -50,7 +50,10 @@ var get_matches = function(json) {
     var nodes = sats.concat(sits.slice(0, sitnum));
 
     console.log('Prepping force layout with width height:');
-
+    
+    var w = 150,
+        h = 100;
+    
     var fill = d3.scale.category20();
     var vis = d3.select('.chart-container').append("svg")
         .attr("width", '100%')
@@ -73,8 +76,7 @@ var get_matches = function(json) {
 //        var w = document.getElementById('chart').clientWidth,
 //            h = document.getElementById('chart').clientHeight;
 //    }
-    var w = 0,
-        h = 0;
+    
     
     if (w == 0) {
         w = 960;
