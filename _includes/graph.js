@@ -52,7 +52,13 @@ var get_matches = function(json) {
     console.log('Prepping force layout with width height:');
 
     var fill = d3.scale.category20();
-    var vis = d3.select("#chart")
+    var vis = d3.select('.chart-container').append("svg")
+        .attr("width", '100%')
+        .attr("height", '100%')
+        .attr('viewBox','0 0 ' + Math.min(w, h) + ' ' + Math.min(w, h))
+        .attr('preserveAspectRatio','xMinYMin')
+        .append("g")
+        .attr("transform", "translate(" + Math.min(w, h) / 2 + "," + Math.min(w, h) / 2 + ")")
         .on("mousedown", function() {
             //console.log("mousedown clicked");
             //d3.select("#infobox")
