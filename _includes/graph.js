@@ -51,8 +51,8 @@ var get_matches = function(json) {
 
     console.log('Prepping force layout with width height:');
     
-    var w = 150,
-        h = 100;
+    var w = 250,
+        h = 150;
     
     var fill = d3.scale.category20();
     var vis = d3.select('.chart-container').append("svg")
@@ -60,8 +60,6 @@ var get_matches = function(json) {
         .attr("height", '100%')
         .attr('viewBox', '0 0 ' + w + ' ' + h)
         .attr('preserveAspectRatio', 'xMinYMin')
-        //.append("g")
-        //.attr("transform", "translate(" + Math.min(w, h) / 2 + "," + Math.min(w, h) / 2 + ")")
         .on("mousedown", function() {
             //console.log("mousedown clicked");
             //d3.select("#infobox")
@@ -126,7 +124,7 @@ var get_matches = function(json) {
         .attr("class", "node")
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
-        .attr("r", 5)
+        .attr("r", 1.5)
         .style("fill", function(d) { return fill(d.group); })
         .call(force.drag)
         .on("mouseover", function(d,i) {
