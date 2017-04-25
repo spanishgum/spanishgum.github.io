@@ -84,7 +84,7 @@ var get_matches = function(json) {
         console.log(h);
     }
 
-    var r = 6,
+    var r = 2.5,
         k = Math.sqrt(nodes.length / (w * h));
 
 
@@ -124,7 +124,7 @@ var get_matches = function(json) {
         .attr("class", "node")
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; })
-        .attr("r", 2.5)
+        .attr("r", r)
         .style("fill", function(d) { return fill(d.group); })
         .call(force.drag)
         .on("mouseover", function(d,i) {
