@@ -52,14 +52,19 @@
             I will post more details regarding my findings soon!
         </div>
         
-        <h3>
-            Chicle to chew on...
-        </h3>
-        <ul>
-        {% for post in site.posts %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-        </ul>
+        
+        <center>
+        <div class="container">
+            <h3>
+                Chicle to chew on...
+            </h3>
+            <ul>
+            {% for post in site.posts %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        </center>
 
         {% if site.google_analytics %}
         <script type="text/javascript">
