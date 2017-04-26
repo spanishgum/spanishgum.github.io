@@ -37,9 +37,9 @@
         </header>
 
         <div class="container">
-             <section id="main_content">
+            <section id="main_content">
                 {{ content }}
-             </section>
+            </section>
             Check out my project: <a href="http://doms.coaps.fsu.edu/">DOMS</a>
             <center>
             <div class="chart-container">
@@ -53,8 +53,8 @@
         </div>
         
         
-        <center>
         <div class="container">
+            <section>
             <h3>
                 Chicle to chew on...
             </h3>
@@ -63,8 +63,8 @@
                 <li><a href="{{ post.url }}">{{ post.date }} | {{ post.title }}</a></li>
             {% endfor %}
             </ul>
+            </section>
         </div>
-        </center>
 
         {% if site.google_analytics %}
         <script type="text/javascript">
