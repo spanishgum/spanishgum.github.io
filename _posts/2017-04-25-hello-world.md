@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "Testing, 1.. 2.. 3.. :D"
+title: "Hello, World!"
 date: 2017-04-25 21:30:00 -0400
-categories: test first hello world
+tags: test first hello world
 ---
-Hello, World. My name is Adam. I am about to graduate with my masters in computer science. Life is about to get very exciting! The world is feeling smaller and smaller the older I get. The idea of traveling to China to test my Mandarin seems realistic. The doors that have opened up for me in the last two years of living are more than I have ever dreamed of. I grew up in lower middle class America, and perfectly happy with it. My community was pleasant; I was surrounded by wonderful people who encouraged me and told me I would go far. Life has treated me well. Before I go off ranting about my childhood, putting you to sleep, I would like to say thanks to everyone who has gotten me where I am today. Every person I have interacted with has made an impact on me, and led me up to this moment. For that, I am thankful.
+Hello, World! My name is Adam. I am about to graduate with my masters in computer science and life is about to get very exciting! I am finally getting the hang of this jekyll tool and I want to commit myself to writing short blog posts in the future as I take on new challenges in the field. I have a lot to learn and may be a noobie, but I am very passionate about my career. Here's to a new beginning!
 
-So hello, world! Welcome to my blog! :D
-
+Cheers.
