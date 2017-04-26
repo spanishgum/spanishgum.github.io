@@ -23,7 +23,7 @@
             <h5>{{ page.date }}</h5>   
             <section id="main_content">
                 {{ content }}
-                Json test: {{ site.data.test }} (if there is json to the left, it worked!)
+                Json test: {{ site.data.test | jsonify }} (if there is json to the left, it worked!)
             </section>
         </div>
 
