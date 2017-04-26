@@ -26,7 +26,7 @@
                 Json test: {{ site.data.test | jsonify }} (if there is json to the left, it worked!)
                 Now a second test, using a conditional:
                 {% if page.html %}
-                {% include page.html %}
+                {% include {{ page.html }} %}
                 {% endif %}
                 If there is html above, then it worked!
             </section>
