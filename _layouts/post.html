@@ -13,15 +13,17 @@
         <header>
             <center>
             <h1>
-            spanishgum
+            <a href={{ site.url }}>spanishgum</a>
             </h1>
             </center>
         </header>
 
         <div class="container">
-             <section id="main_content">
+            <h3>{{ post.title }}</h3>   
+            <h5>{{ post.date }}</h5>   
+            <section id="main_content">
                 {{ content }}
-             </section>
+            </section>
         </div>
 
         <footer>
