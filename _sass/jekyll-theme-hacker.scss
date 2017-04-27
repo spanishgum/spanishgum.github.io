@@ -23,8 +23,8 @@ body {
  height: 50%;
 }
 
-div + div { 
-  margin-top: 10px;
+.container + .container { 
+  margin-top: 20px;
 }
 
 section {
