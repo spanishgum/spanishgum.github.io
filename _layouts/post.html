@@ -26,6 +26,30 @@
             </section>
         </div>
 
+        {% if page.comments %}
+        <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_config = function () {
+                    this.page.url = "{{ site.url }}";
+                    this.page.identifier = "{{ site.identifier }}";
+                var disqus_shortname = 'spanishgum';
+                var disqus_identifier = "{{ page.url }}";
+                (function() {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.setAttribute('data-timestamp', +new Date());
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] ||
+                        document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Enable JS to see <a href="http://disqus.com/?ref_noscript">comments</a>.</noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        {% endif %}
+
+        <script id="dsq-count-scr" src="//spanishgum-github-io.disqus.com/count.js" async></script>
+
         <footer>
         <ul>
            {% if site.twitter %}
