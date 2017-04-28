@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
         <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
         <link rel="stylesheet" href="{{ '/assets/css/graph.css?v=' | append: site.github.build_revision | relative_url }}">
-        <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
+        <title>{{ site.title | default: site.github.repository_name }}</title>
     </head>
 
     <body>
@@ -32,8 +32,7 @@
                 var disqus_config = function () {
                     this.page.url = "{{ page.url }}";
                     this.page.identifier = "{{ page.id }}";
-                var disqus_shortname = 'spanishgum-github-io';
-                var disqus_identifier = "{{ page.url }}";
+                };
                 (function() {
                     var d = document, s = d.createElement('script');
                     s.src = '//spanishgum-github-io.disqus.com/embed.js';
@@ -62,6 +61,5 @@
         </ul>
         </footer>
 
-<!--        <script id="dsq-count-scr" src="//spanishgum-github-io.disqus.com/count.js" async></script> -->
     </body>
 </html>
