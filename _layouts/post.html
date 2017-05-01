@@ -20,11 +20,24 @@
 
         <div class="container">
             <h3>{{ page.title }}</h3>   
-<!--            <h5>{{ page.date }}</h5> -->
-            <span class="mr1 nowrap">
-                 <i class="fa fa-calendar"></i>
-                 {{ page.date }}
-            </span> 
+            <h6>
+                <span class="mr1 nowrap">
+                    <i class="fa fa-calendar"></i>
+                    {{ page.date }}
+                </span>
+                <span class="mr1 nowrap">
+                    <i class="fa fa-tags"></i>
+                    {{ page.tags }}
+                </span>
+                <span class="mr1 nowrap">
+                    <i class="fa fa-comments"></i>
+<!--                    <a class="disqus-comment-count" href="#comments" data-disqus-identifier="">7 Comments</a> -->
+                </span>
+                <span class="mr1 nowrap">
+                    <i class="fa fa-comments"></i>
+                    {% include read_time.html %} 
+                </span>
+            </h6>
             <section id="main_content">
                 {{ content }}
             </section>
