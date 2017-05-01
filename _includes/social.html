@@ -1,5 +1,5 @@
 {% if site.twitter %}
-    <a href="https://twitter.com/{{ site.twitter }}"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.github.com/{{ site.github.repository_name }}"><i class="fa fa-github"></i></a>
 {% endif %}
 {% if site.linkedin %}
     <a href="https://linkedin.com/in/{{ site.linkedin }}"><i class="fa fa-linkedin"></i></a>
@@ -17,7 +17,10 @@
     <a href="https://www.reddit.com/u/{{ site.reddit }}"><i class="fa fa-reddit"></i></a>
 {% endif %}
 {% if site.reddit %}
-    <a href="https://www.github.com/{{ site.github }}"><i class="fa fa-github"></i></a>
+    <a href="https://twitter.com/{{ site.twitter }}"><i class="fa fa-twitter"></i></a>
+{% endif %}
+{% if site.ycombinator %}
+    <a href="https://news.ycombinator.com/user?id={{ site.ycombinator }}"><i class="fa fa-ycombinator"></i></a>
 {% endif %}
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
