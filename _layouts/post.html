@@ -29,10 +29,12 @@
                     <i class="fa fa-tags"></i>
                     {{ page.tags | join: ' ' }}
                 </span>
+                {% if page.comments %}
                 <span class="mr1 nowrap">
                     <i class="fa fa-comments"></i>
                     <a class="disqus-comment-count" href="#comments" data-disqus-identifier="{{ page.id }}">comments</a>
                 </span>
+                {% endif %}
                 <span class="mr1 nowrap">
                     <i class="fa fa-clock-o"></i>
                     {% include read_time.html %} 
