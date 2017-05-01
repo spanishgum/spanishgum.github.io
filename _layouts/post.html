@@ -20,7 +20,11 @@
 
         <div class="container">
             <h3>{{ page.title }}</h3>   
-            <h5>{{ page.date }}</h5>   
+<!--            <h5>{{ page.date }}</h5> -->
+            <span class="mr1 nowrap">
+                 <i class="fa fa-calendar"></i>
+                 {{ page.date }}
+            </span> 
             <section id="main_content">
                 {{ content }}
             </section>
