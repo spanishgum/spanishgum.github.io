@@ -1,24 +1,22 @@
 <footer>
-    <ul>
-        {% if site.twitter %}
-        <li><a href="https://twitter.com/{{ site.twitter }}"><i class="fa fa-twitter"></i></a> <a href="https://twitter.com/{{ site.twitter }}">Twitter</a></li>
-        {% endif %}
-        {% if site.linkedin %}
-        <li><a href="https://linkedin.com/in/{{ site.linkedin }}"><i class="fa fa-linkedin"></i></a> <a href="https://linkedin.com/in/{{ site.linkedin }}">LinkedIn</a></li>
-        {% endif %}
-        {% if site.google %}
-        <li><a href="https://plus.google.com/{{ site.google }}"><i class="fa fa-google-plus"></i></a> <a href="https://plus.google.com/{{ site.google }}">Google+</a></li>
-        {% endif %}
-        {% if site.facebook %}
-        <li><a href="https://www.facebook.com/{{ site.facebook }}"><i class="fa fa-facebook"></i></a> <a href="https://www.facebook.com/{{ site.facebook }}">Facebook</a></li>
-        {% endif %}
-        {% if site.instagram %}
-        <li><a href="https://www.instagram.com/{{ site.instagram }}"><i class="fa fa-instagram"></i></a> <a href="https://www.instagram.com/{{ site.instagram }}">Instagram</a></li>
-        {% endif %}
-        {% if site.reddit %}
-        <li><a href="https://www.reddit.com/u/{{ site.reddit }}"><i class="fa fa-reddit"></i></a> <a href="https://www.reddit.com/u/{{ site.reddit }}">Reddit</a></li>
-        {% endif %}
-    </ul>
+    {% if site.twitter %}
+        <a href="https://twitter.com/{{ site.twitter }}"><i class="fa fa-twitter"></i></a>
+    {% endif %}
+    {% if site.linkedin %}
+        <a href="https://linkedin.com/in/{{ site.linkedin }}"><i class="fa fa-linkedin"></i></a>
+    {% endif %}
+    {% if site.google %}
+        <a href="https://plus.google.com/{{ site.google }}"><i class="fa fa-google-plus"></a>
+    {% endif %}
+    {% if site.facebook %}
+        <a href="https://www.facebook.com/{{ site.facebook }}"><i class="fa fa-facebook"></i></a>
+    {% endif %}
+    {% if site.instagram %}
+        <a href="https://www.instagram.com/{{ site.instagram }}"><i class="fa fa-instagram"></i></a>
+    {% endif %}
+    {% if site.reddit %}
+        <a href="https://www.reddit.com/u/{{ site.reddit }}"><i class="fa fa-reddit"></i></a>
+    {% endif %}
 </footer>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
