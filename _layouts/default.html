@@ -24,18 +24,15 @@
 
 
         <div class="container">
-            <h6>{{ site.description | default: site.github.project_tagline }}</h6>
-
             <section id="downloads">
                 <a href="https://github.com/spanishgum/spanishgum.github.io/blob/master/resume.pdf" class="btn btn-github">
                     <span class="icon"></span>Resume</a>
             </section>
         </div>
-                
-
 
         <div class="container">
             <section id="main_content">
+                {{ site.description | default: site.github.project_tagline }}
                 {{ content }}
             </section>
             Check out my project: <a href="http://doms.coaps.fsu.edu/">DOMS</a>
