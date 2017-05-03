@@ -1,7 +1,7 @@
 <div class="container">
     Share:
 {% if site.linkedin %}
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}&title={{ page.title }}&summary={{ page.description }}&source={{ site.github.username }}"><i class="fa fa-linkedin"></i></a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}&title={{ page.title }}&source={{ site.github.owner_name }}"><i class="fa fa-linkedin"></i></a>
 {% endif %}
 {% if site.google %}
     <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Google+"><i class="fa fa-google-plus"></i></a>
@@ -18,7 +18,7 @@
 {% if site.ycombinator %}
 {% endif %}
 {% if site.tumblr %}
-    <a href="http://www.tumblr.com/share/link?url={{ site.url }}{{ page.url }}&name={{ page.title }}&description={{ page.description }}" rel="nofollow" target="_blank" title="Share on Tumblr"><i class="fa fa-tumblr"></i></a>
+    <a href="http://www.tumblr.com/share/link?url={{ site.url }}{{ page.url }}&name={{ page.title }}" rel="nofollow" target="_blank" title="Share on Tumblr"><i class="fa fa-tumblr"></i></a>
 {% endif %}
 </div>
 
