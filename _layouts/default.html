@@ -11,6 +11,7 @@
             </script>
         {% endfor %}
         <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
+        {% include google_analytics.html %}
     </head>
 
     <body>
