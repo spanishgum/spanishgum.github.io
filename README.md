@@ -1,6 +1,6 @@
 # spanishgum
 
-Welcome to my github page!
+Welcome to [my github page](http://spanishgum.github.io/)!
 
 Here I have used jekyll, and the hacker theme from github. The generic theme is shown [here](http://pages-themes.github.io/hacker). You can find the more themes over [here](https://github.com/pages-themes/).
 
