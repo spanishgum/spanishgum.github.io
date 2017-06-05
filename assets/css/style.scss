@@ -3,11 +3,32 @@
 
 @import 'jekyll-theme-hacker';
 
+
+//////////////////////////////
+// Inline syntax highlight
+//////////////////////////////
+code {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #b5e853;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+
+////////////////////////////
+// DOMS graph tooltip
+////////////////////////////
 div.tooltip h3 {
     padding-top: 10px;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.7);
 }
+
+
+/////////////////////////////////
+// Code pen day / night toggle
+/////////////////////////////////
 
 /*
 F5EB42 - sun inner
