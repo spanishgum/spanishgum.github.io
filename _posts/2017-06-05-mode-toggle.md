@@ -84,10 +84,14 @@ I searched through a few links, but these two were the most promising. The forme
 
 So I gave the links a quick read, to see what I was getting myself into, and it doesn't seem too monstrous. I came up with a checklist of goals to accomplish to do this:
 
- - Create a day time color pallette
  - Add the switch to the top of my page next to my title
- - Add the toggle effect and its animation
- - Use the `before`, `after`, and `checked` conventions found in the blog post to implement the day / night mode changes.
+ - Create a day time color pallette
+ - Add the pallette to the toggled css using the `before`, `after`, and `checked` conventions
+
+
+First I created a `toggle.scss` file in my `_sass` folder for my page, and copy pasted the scss code from code pen in. I removed the body {...} from the code since I didn't want to interfere with my theme. I made a `toggle.html` file in my `_includes` folder to hold the toggle item, and added the style link directly to this file.
+
+
 
 
 To be continued...
