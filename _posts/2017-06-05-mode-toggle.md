@@ -89,7 +89,9 @@ So I gave the links a quick read, to see what I was getting myself into, and it 
  - Add the pallette to the toggled css using the `before`, `after`, and `checked` conventions
 
 
-First I created a `toggle.scss` file in my `_sass` folder for my page, and copy pasted the scss code from code pen in. I removed the body {...} from the code since I didn't want to interfere with my theme. I made a `toggle.html` file in my `_includes` folder to hold the toggle item, and added the style link directly to this file.
+First I copy pasted the scss code from code pen into my `assets/css/style.scss` file. I removed the body {...} from this code since I didn't want to interfere with my hacker theme. I made a `toggle.html` file in my `_includes` folder to hold the toggle item, and used the `{% include toggle.html %} convention in my layouts to get it to show up. 
+
+Unofrtunately, the positioning was not at all what I wanted. I have my title and social links inside a container, and putting the new html inside the end of that container just puts it on a new line off center. I wanted to go the the top right, so I would have to come back to that. Also, the size was slightly bigger than I wanted.
 
 
 
