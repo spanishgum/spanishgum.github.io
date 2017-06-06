@@ -23,6 +23,9 @@
 {% if site.ycombinator %}
     <a href="https://news.ycombinator.com/user?id={{ site.ycombinator }}"><i class="fa fa-yc-square"></i></a>
 {% endif %}
+{% if site.stackoverflow %}
+    <a href="https://stackoverflow.com/users/{{ site.stackoverflow }}"><i class="fa fa-stack-overflow"></i></a>
+{% endif %}
 {% if site.tumblr %}
     <a href="https://{{ site.tumblr }}.tumblr.com"><i class="fa fa-tumblr"></i></a>
 {% endif %}
