@@ -85,14 +85,84 @@ I searched through a few links, but these two were the most promising. The forme
 So I gave the links a quick read, to see what I was getting myself into, and it doesn't seem too monstrous. I came up with a checklist of goals to accomplish to do this:
 
  - Add the switch to the top of my page next to my title
+ - Tweak the CSS and HTML so the toggle plays nicely
  - Create a day time color pallette
  - Add the pallette to the toggled css using the `before`, `after`, and `checked` conventions
 
 
-First I copy pasted the scss code from code pen into my `assets/css/style.scss` file. I removed the `body {...}` from this code since I didn't want to interfere with my hacker theme. I made a `toggle.html` file in my `_includes` folder to hold the toggle item, and added `{% raw %}{% include toggle.html %}{% endraw %}` to my layouts to get it to show up. 
+First I copy pasted the scss code from code pen into my `assets/css/style.scss` file. This file gets rendered after the jekyll layout, so everything here will take precedence.
 
-Unfortunately, the positioning was not at all what I wanted. I have my title and social links inside a container, and putting the new html inside the end of that container just puts it on a new line off center. I wanted to go the the top right, so I would have to come back to that. Also, the size was slightly bigger than I wanted.
+I removed the `body {...}` from this code since I didn't want to interfere with my hacker theme.
 
+I made a `toggle.html` file in my `_includes` folder to hold the toggle item, and added `{% raw %}{% include toggle.html %}{% endraw %}` to my layouts to get it to show up. I removed the `<div class="wrapper">..</div>` tags from the toggle because it was unneccessary and the associated style was undesirable. I also moved my `<header>..</header>` sections from the `default.html` and `post.html` layouts into an include file `header.html`.
+
+To get the positioning right, I tweaked a lot of stuff. Mostly, I just started making pixel values from the new CSS smaller, one by one and testing it.
+
+I created new classes and relevent CSS for my header to make it two column:
+
+```html
+{% raw %}
+<div class="header_container container">
+    <div class="headercol_l">
+        <h1><a href={{ site.url }}>{{ site.title | default: site.github.repository_name }}</a></h1>
+        {% include social.html %}
+    </div>
+    <div class="headercol_r">
+        {% include toggle.html %}
+    </div>
+</div>
+{% endraw %}
+```
+
+```css
+.headercol_l {
+    margin: 0 auto;
+    float: left;
+    width: 60%;
+    max-width: 360px;
+}
+
+.headercol_r {
+    margin: 0 auto;
+    float: right;
+    width: 40%;
+    max-width: 240px;
+    overflow: auto;
+}
+
+.headercol_r:before,
+.headercol_r:after {
+    content: "";
+    display: table;
+}
+
+.headercol_r:after {
+    clear: both;
+}
+
+
+.header_container {
+    overflow: auto;
+}
+
+.header_containter:before,
+.header_containter:after {
+    content: "";
+    display: table;
+}
+
+.header_containter:after {
+    clear: both;
+}
+```
+
+I read about this technique in <a href="https://stackoverflow.com/a/18557316/3454650">this stack post</a> but to be honest I can't explain to you what is happening. I found the same code to be in the toggle CSS, so I guess this is a commonly used technique.
+
+I had to fidget with the `width` properties of my header columns to keep the page from putting the header in a scroll box. I added some `margin-top` to the `toggle` as well to bring it down.
+
+Somehow I managed to get it in the header clean without acting weird, but it took a lot of pain and trudging. My hat is off for CSS people. I will never fully grasp this mysterious language.
+
+Before moving on to finding a color pallette, I wanted to make the night time mode the default. At first I thought I was going to move around the CSS, but then I laughed that idea right off the table. Turns out you can just put `checked=""` in the html tag of the toggle input. Really dodged a bullet there.
 
 
 
