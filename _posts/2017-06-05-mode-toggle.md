@@ -166,7 +166,7 @@ Before moving on to finding a color pallette, I wanted to make the night time mo
 
 
 
-This post is already long enough now, so I think I am going to save the color pallette for my next post. But before leaving you, let me explain how I am merging my development branch into master for live publishing. Here is <a href=https://stackoverflow.com/questions/14168677/merge-development-branch-with-master">a stack post</a> I followed for reference.
+This post is already long enough now, so I think I am going to save the color pallette for my next post. But before leaving you, let me explain how I am merging my development branch into master for live publishing. Here is <a href="https://stackoverflow.com/questions/14168677/merge-development-branch-with-master">a stack post</a> I followed for reference.
 
 ```bash
 # start on dev branch
