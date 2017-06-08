@@ -14,9 +14,12 @@ stackoverflow: 3454650/spanishgum
 tumblr: spanishgum
 soundcloud: adam-preston-stallard
 spotify: 1266112379
-jsheadarr:
-- jquery.min.js
+default_jsheadarr:
 - d3.min.js
-jsfootarr:
+default_jsfootarr:
 - jquery.tipsy.js
 - graph.js
+jsheadarr:
+- jquery.min.js
+jsfootarr:
+- toggle.js
