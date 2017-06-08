@@ -15,11 +15,13 @@ tumblr: spanishgum
 soundcloud: adam-preston-stallard
 spotify: 1266112379
 default_jsheadarr:
-- d3.min.js
+  - d3.min.js
 default_jsfootarr:
-- jquery.tipsy.js
-- graph.js
+  - jquery.tipsy.js
+  - graph.js
 jsheadarr:
-- jquery.min.js
+  - jquery.min.js
 jsfootarr:
-- toggle.js
+  - toggle.js
+gems:
+  - jekyll-seo-tag
