@@ -11,8 +11,14 @@
             {% include {{ js }} %}
             </script>
         {% endfor %}
+        {% for js in site.default_jsheadarr %}
+            <script type="text/javascript">
+            {% include {{ js }} %}
+            </script>
+        {% endfor %}
         <title>{{ site.title | default: site.github.repository_name }}</title>
         {% include google_analytics.html %}
+        {% seo %}
     </head>
 
     <body>
@@ -67,6 +73,11 @@
         {% endif %}
 
         
+        {% for js in site.default_jsfootarr %}
+            <script type="text/javascript">
+            {% include {{ js }} %}
+            </script>
+        {% endfor %}
         {% for js in site.jsfootarr %}
             <script type="text/javascript">
             {% include {{ js }} %}
