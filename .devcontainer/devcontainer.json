@@ -1,11 +1,13 @@
 {
-	"name": "spanishgum",
+    "name": "spanishgum",
     "dockerFile": "Dockerfile",
-	"forwardPorts": [3000],
-	"settings": { 
-		"terminal.integrated.shell.linux": null
-	},
-	"extensions": [
+    "forwardPorts": [
+        3000
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": null
+    },
+    "extensions": [
         "dbaeumer.vscode-eslint",
         "burkeholland.simple-react-snippets"
     ]
