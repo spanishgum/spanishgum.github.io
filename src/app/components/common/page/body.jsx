@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   bodyBoxStyle: {
-    padding: theme.spacing(5),
+    padding: theme.spacing(2),
   },
 }));
 

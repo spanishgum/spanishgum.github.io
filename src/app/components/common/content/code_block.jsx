@@ -8,7 +8,8 @@ hljs.initHighlightingOnLoad();
 
 const useStyles = makeStyles((theme) => ({
   codeBlockBoxStyle: {
-    padding: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
   },
 }));
 

@@ -4,11 +4,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   headingBoxStyle: {
-    padding: theme.spacing(1),
     paddingTop: theme.spacing(2),
   },
   childrenBoxStyle: {
-    padding: theme.spacing(1),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
   },
 }));
 

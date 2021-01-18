@@ -402,8 +402,12 @@ const Implementation = () => {
         {`export default Post\n`}
       </CodeBlock>
       <Typography>
-        Well that pretty much covers everything! If you have any questions, feel
-        free to create an issue and I'll be happy to respond!
+        Well that pretty much covers everything! At this point, you should
+        consider creating reusable components for every post you make. For
+        example, the check lists, code blocks, and file hierarchy you see on
+        this page are components I've added to{" "}
+        <Code>src/app/components/common/content</Code>. All that's left is
+        adding sex appeal to your blog! Happy coding!
       </Typography>
       <Gap />
       <Typography>Cheers</Typography>
