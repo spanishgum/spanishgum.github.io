@@ -33,7 +33,7 @@ const BulletListItem = ({ children }) => {
   };
   return (
     <ListItem>
-      <ListItemIcon button onClick={toggle}>
+      <ListItemIcon onClick={toggle}>
         <Checkbox checked={checked} disableRipple />
       </ListItemIcon>
       {children}

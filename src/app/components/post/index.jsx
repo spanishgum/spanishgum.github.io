@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Container, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Page from "../common/page";
+import AppContext from "../../context";
 
 const useStyles = makeStyles((theme) => ({
   titleBoxStyle: {
@@ -13,9 +14,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Post = ({ content }) => {
-  const { title, Component } = content;
+const Post = ({ post }) => {
+  const { posts } = useContext(AppContext);
   const { titleBoxStyle, componentBoxStyle } = useStyles();
+  const { title, Component } = posts[post];
+
   return (
     <Page>
       <Container>

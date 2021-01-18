@@ -18,17 +18,17 @@ const Home = () => {
   return (
     <Page>
       <Grid container>
-        {posts.map((post) => (
+        {Object.entries(posts).map(([link, content]) => (
           <Grid
             item
-            key={post.link}
+            key={link}
             className={gridStyle}
             xs={12}
             md={6}
             lg={4}
             xl={3}
           >
-            <Card post={post} />
+            <Card link={link} content={content} />
           </Grid>
         ))}
       </Grid>
