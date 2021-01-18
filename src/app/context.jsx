@@ -9,5 +9,5 @@ import React from "react";
 //  component
 // }
 //
-const PostContext = React.createContext();
-export default PostContext;
+const AppContext = React.createContext();
+export default AppContext;
