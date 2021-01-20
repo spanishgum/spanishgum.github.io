@@ -1,29 +1,27 @@
 import React from "react";
-import { Link } from "@material-ui/core";
+import LinkedText from "../../../common/content/linked_text";
 
 const links = {
   createReactApp: (
-    <Link
-      href={"https://reactjs.org/docs/create-a-new-react-app.html"}
-      color="secondary"
-    >
+    <LinkedText href={"https://reactjs.org/docs/create-a-new-react-app.html"}>
       create-react-app
-    </Link>
+    </LinkedText>
   ),
   ghPages: (
-    <Link href={"https://www.npmjs.com/package/gh-pages"} color="secondary">
+    <LinkedText href={"https://www.npmjs.com/package/gh-pages"}>
       gh-pages
-    </Link>
+    </LinkedText>
   ),
   materialUI: (
-    <Link href={"https://material-ui.com/"} color="secondary">
-      Material-UI
-    </Link>
+    <LinkedText href={"https://material-ui.com/"}>Material-UI</LinkedText>
   ),
   reactRouter: (
-    <Link href={"https://reactrouter.com/"} color="secondary">
-      React Router
-    </Link>
+    <LinkedText href={"https://reactrouter.com/"}>React Router</LinkedText>
+  ),
+  reactStatic: (
+    <LinkedText href={"https://github.com/react-static/react-static"}>
+      react-static
+    </LinkedText>
   ),
 };
 

@@ -5,6 +5,7 @@ import Code from "./code";
 import CodeBlock from "./code_block";
 import Mermaid from "./mermaid_wrapper";
 import Section from "./section";
+import LinkedText from "./linked_text";
 
 export {
   Gap,
@@ -12,6 +13,7 @@ export {
   BulletListView,
   FileTreeItem,
   FileTreeView,
+  LinkedText,
   Code,
   CodeBlock,
   Mermaid,

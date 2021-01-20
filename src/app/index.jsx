@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
 import AppContext from "./context";
@@ -12,23 +12,8 @@ const posts = Object.fromEntries(
   })
 );
 
-const useLocation = () => {
-  const [location, setLocation] = useState(window.location);
-  const handleLocationUpdate = () => {
-    setLocation(window.location);
-  };
-  useEffect(() => {
-    window.addEventListener("locationListener", handleLocationUpdate);
-    return () => {
-      window.removeEventListener("locationListener", handleLocationUpdate);
-    };
-  }, []);
-  return location;
-};
-
 const App = () => {
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
+  const params = new URLSearchParams(window.location.search);
   const post = params.get("post");
 
   return (

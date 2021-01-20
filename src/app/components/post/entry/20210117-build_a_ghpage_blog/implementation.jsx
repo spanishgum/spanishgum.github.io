@@ -207,41 +207,11 @@ const Implementation = () => {
       <Typography>
         This will create a mapping of the names of posts to their content. Now
         that posts are loaded, we need a way to render the correct content.
-        Remember this is a static site, so every page will use <Code>/</Code>.
-        We can however make use of URL query paramters!
-      </Typography>
-      <Gap />
-      <Typography>
-        First off, if you just try to blindly use <Code>window.location</Code>,
-        you'll find that the page will not re-render when you click on a link.
-        What we need to do is tell react to "react" when{" "}
-        <Code>window.location</Code> changes. Here is a useful hook that allows
-        us to do this:
-      </Typography>
-      <CodeBlock>
-        {`// src/app/index.jsx\n`}
-        {`\n`}
-        {`import React, { useState, useEffect } from "react";\n`}
-        {`\n`}
-        {`const useLocation = () => {\n`}
-        {`  const [location, setLocation] = useState(window.location);\n`}
-        {`  const handleLocationUpdate = () => {\n`}
-        {`    setLocation(window.location);\n`}
-        {`  };\n`}
-        {`  useEffect(() => {\n`}
-        {`    window.addEventListener("locationListener", handleLocationUpdate);\n`}
-        {`    return () => {\n`}
-        {`      window.removeEventListener("locationListener", handleLocationUpdate);\n`}
-        {`    };\n`}
-        {`  }, []);\n`}
-        {`  return location;\n`}
-        {`};\n`}
-      </CodeBlock>
-      <Typography>
-        This kind of combination of <Code>useState</Code> and{" "}
-        <Code>useEffect</Code> are very common in React applications. We can now
-        call this hook directly in our <Code>App</Code> component and render the
-        correct page.
+        Since this is a static site, every page will use <Code>/</Code>. If we
+        wanted to render routes at different endpoints, we would have to
+        generate html resources for these. I believe {links.reactStatic} can do
+        this, but I have't tried this tool yet. Instead, what we will do is use
+        a URL query parameter!
       </Typography>
       <CodeBlock language={"jsx"}>
         {`// src/app/index.jsx\n`}
@@ -251,8 +221,7 @@ const Implementation = () => {
         {`import Post from "./components/post";\n`}
         {`\n`}
         {`const App = () => {\n`}
-        {`  const location = useLocation();\n`}
-        {`  const params = new URLSearchParams(location.search);\n`}
+        {`  const params = new URLSearchParams(window.location.search);\n`}
         {`  const post = params.get("post");\n`}
         {`\n`}
         {`  return (\n`}
