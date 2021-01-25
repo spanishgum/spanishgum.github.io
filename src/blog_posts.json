@@ -1,6 +1,10 @@
 [
   {
     "id": "20210117-build_a_ghpage_blog",
-    "title": "Build a github page blog with react"
+    "title": "Build a github page blog with create react app"
+  },
+  {
+    "id": "20210124-make_ghpage_blog_static",
+    "title": "Build a github page blog with react-static"
   }
 ]
