@@ -1,8 +1,7 @@
 import React from "react";
 import { Root, Routes } from "react-static";
-import { ThemeProvider } from "@material-ui/core";
-
 import { Router } from "@reach/router";
+import { ThemeProvider } from "@material-ui/core";
 import theme from "./components/theme";
 import { Header, Body, Footer, Divider } from "./components/page";
 
