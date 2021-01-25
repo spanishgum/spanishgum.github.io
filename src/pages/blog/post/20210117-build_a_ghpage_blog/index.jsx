@@ -1,10 +1,8 @@
 import React from "react";
-import { Section } from "../../../common/content";
+import { Section } from "components/content";
 import Overview from "./overview";
 import Implementation from "./implementation";
 
-const title = "Build a github page blog in react";
-const description = "Learn how to build a github page blog using react.";
 const Component = () => {
   return (
     <>
@@ -18,4 +16,4 @@ const Component = () => {
   );
 };
 
-export { title, description, Component };
+export default Component;

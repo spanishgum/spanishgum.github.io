@@ -3,27 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://spanishgum.github.io",
+  "scripts": {
+    "start": "react-static start",
+    "stage": "react-static build --staging",
+    "build": "react-static build",
+    "analyze": "react-static build --analyze",
+    "serve": "serve dist -p 3000",
+    "deploy": "gh-pages -t true -b master -d dist",
+    "lint": "eslint src/ --fix"
+  },
   "dependencies": {
-    "@material-ui/core": "^4.11.2",
+    "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "@material-ui/styles": "^4.11.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@material-ui/styles": "^4.11.3",
     "highlightjs": "^9.16.2",
-    "mermaid": "^8.8.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-static": "^7.2.0",
+    "react-static-plugin-reach-router": "^7.2.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -b master -d build",
-    "lint": "eslint src/ --fix"
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-config-react-tools": "^1.1.7",
+    "eslint-plugin-flowtype": "^4.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.1.0",
+    "prettier": "^2.2.1",
+    "serve": "^11.1.0"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -33,23 +46,5 @@
     "rules": {
       "prettier/prettier": "error"
     }
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "gh-pages": "^3.1.0",
-    "prettier": "2.2.1"
   }
 }

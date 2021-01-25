@@ -1,43 +1,43 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
 import links from "./links";
 import {
   Gap,
   Code,
   CodeBlock,
+  Text,
   BulletListView,
   BulletListItem,
-} from "../../../common/content";
+} from "components/content";
 
 const Overview = () => {
   return (
     <>
-      <Typography>
+      <Text>
         To build a github page using react, we will use {links.createReactApp},{" "}
         {links.ghPages}, and {links.materialUI}. Some things to keep in mind:
-      </Typography>
+      </Text>
       <BulletListView>
         <BulletListItem>
-          <Typography>A github page is a static site</Typography>
+          <Text>A github page is a static site</Text>
         </BulletListItem>
         <BulletListItem>
-          <Typography>
+          <Text>
             An <Code>index.html</Code> must exist at the root of the repository
-          </Typography>
+          </Text>
         </BulletListItem>
         <BulletListItem>
-          <Typography>
+          <Text>
             All resource paths are relative the root of the repository
-          </Typography>
+          </Text>
         </BulletListItem>
         <BulletListItem>
-          <Typography>
+          <Text>
             Your repository must be named{" "}
             <Code>{`<your-github-username>.github.io`}</Code>
-          </Typography>
+          </Text>
         </BulletListItem>
       </BulletListView>
-      <Typography>
+      <Text>
         Because a static site is required, requests to{" "}
         <Code>/some_endpoint</Code> will only be successful if a resource with
         that name exists. You could use something like {links.reactRouter} and
@@ -45,14 +45,14 @@ const Overview = () => {
         not work in this scenario. While tools exist to support building static
         sites, we are going to stick to using plain {links.createReactApp} with
         the single index file it generates.
-      </Typography>
+      </Text>
       <Gap />
-      <Typography>
+      <Text>
         Start by creating your react app and installing dependencies mentioned.
         Note that you don't have to use {links.materialUI}. I will throughout
         this post to provide some basic page elements. Feel free to ignore them
         and find/build your own compnoents.
-      </Typography>
+      </Text>
       <CodeBlock language={"bash"}>
         {`npx create-react-app $GITHUB_USERNAME.github.io\n`}
         {`cd $GITHUB_USERNAME.github.io\n`}
@@ -63,26 +63,26 @@ const Overview = () => {
         {`yarn add @material-ui/icons  # simple icons \n`}
         {`yarn add @material-ui/lab    # experimental componments`}
       </CodeBlock>
-      <Typography>
+      <Text>
         Next, you should add a script to your <Code>package.json</Code> for
         quick deployment:
-      </Typography>
+      </Text>
       <CodeBlock language={"json"}>
         {`"scripts": {\n`}
         {`  "deploy": "gh-pages -b master -d build",\n`}
         {`}`}
       </CodeBlock>
-      <Typography>
+      <Text>
         Now every time you want to publish your site, you can run this:
-      </Typography>
+      </Text>
       <CodeBlock language={"bash"}>
         {`yarn build\n`}
         {`yarn deploy`}
       </CodeBlock>
-      <Typography>
+      <Text>
         You may also want to ignore the <Code>build</Code> directory in your{" "}
         <Code>.gitignore</Code>.
-      </Typography>
+      </Text>
     </>
   );
 };

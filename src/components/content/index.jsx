@@ -6,6 +6,7 @@ import CodeBlock from "./code_block";
 import Mermaid from "./mermaid_wrapper";
 import Section from "./section";
 import LinkedText from "./linked_text";
+import Text from "./text";
 
 export {
   Gap,
@@ -18,4 +19,5 @@ export {
   CodeBlock,
   Mermaid,
   Section,
+  Text,
 };
