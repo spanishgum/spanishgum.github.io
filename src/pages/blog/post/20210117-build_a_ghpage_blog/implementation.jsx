@@ -1,5 +1,4 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
 import links from "./links";
 import {
   Gap,
@@ -9,39 +8,40 @@ import {
   FileTreeItem,
   BulletListView,
   BulletListItem,
-} from "../../../common/content";
+  Text,
+} from "components/content";
 
 const Implementation = () => {
   return (
     <>
-      <Typography>
+      <Text>
         Now that we have our project, we need a way to structure our blog
         content. We will implement the following:
-      </Typography>
+      </Text>
       <BulletListView>
         <BulletListItem>
-          <Typography>A common overall page layout</Typography>
+          <Text>A common overall page layout</Text>
         </BulletListItem>
         <BulletListItem>
-          <Typography>A home component</Typography>
+          <Text>A home component</Text>
         </BulletListItem>
         <BulletListItem>
-          <Typography>A generic post component</Typography>
+          <Text>A generic post component</Text>
         </BulletListItem>
         <BulletListItem>
-          <Typography>A way to dynamically render specific posts</Typography>
+          <Text>A way to dynamically render specific posts</Text>
         </BulletListItem>
         <BulletListItem>
-          <Typography>A context provider for posts</Typography>
+          <Text>A context provider for posts</Text>
         </BulletListItem>
       </BulletListView>
-      <Typography>
+      <Text>
         Below is a file hierarchy that I've worked out. I personally like when
         imports read like English, so I've chosen to break away from the typical{" "}
         {links.createReactApp} layout just a bit. If you're don't already know,
         having an <Code>index.jsx</Code> file in your folder allows you to
         import directly from the folder name.
-      </Typography>
+      </Text>
       <FileTreeView>
         <FileTreeItem text="src">
           <FileTreeItem text="app">
@@ -74,13 +74,13 @@ const Implementation = () => {
           <FileTreeItem text="theme.jsx" />
         </FileTreeItem>
       </FileTreeView>
-      <Typography>
+      <Text>
         Let's start with the overall page layout. You'll notice a{" "}
         <Code>src/app/components/common/page</Code> folder. This will be where
         we define a uniform page layout so every page of your blog has a
         consistent look and feel. Start by defining empty components for each
         file in that folder. For example, here is an empty header component:
-      </Typography>
+      </Text>
       <CodeBlock language={"jsx"}>
         {`// src/app/components/common/page/header.jsx\n`}
         {`\n`}
@@ -92,11 +92,11 @@ const Implementation = () => {
         {`\n`}
         {`export default Header\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         Don't worry about filling in content yet. For now, focus on the
         structure of the code. Lets take a look at the <Code>Page</Code>{" "}
         component in <Code>src/app/components/common/page/index.jsx</Code>.
-      </Typography>
+      </Text>
       <CodeBlock language={"jsx"}>
         {`// src/app/components/common/page/index.jsx\n`}
         {`\n`}
@@ -119,56 +119,56 @@ const Implementation = () => {
         {`\n`}
         {`export default Page\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         This layout allows us to define every page in terms of a{" "}
         <Code>Page</Code> component. Any children will be forwarded down into
         the <Code>Body</Code> component. This will give us a consistent look and
         feel. Great!
-      </Typography>
+      </Text>
       <Gap />
-      <Typography>
+      <Text>
         Go ahead and create components for the <Code>Home</Code> and{" "}
         <Code>Post</Code> components using their respective{" "}
         <Code>index.jsx</Code> files. Each component will be defined using the{" "}
         <Code>Page</Code> component we just created.
-      </Typography>
+      </Text>
       <CodeBlock>
         {`// src/app/components/home/index.jsx\n`}
         {`\n`}
         {`import React from "react";\n`}
-        {`import { Typography } from "@material-ui/core";\n`}
+        {`import { Text } from "@material-ui/core";\n`}
         {`\n`}
         {`const Home = () => {\n`}
         {`  return (\n`}
         {`    <Page>\n`}
-        {`      <Typography>\n`}
+        {`      <Text>\n`}
         {`        Welcome to my blog!\n`}
-        {`      </Typography>\n`}
+        {`      </Text>\n`}
         {`    </Page>\n`}
         {`  );\n`}
         {`}\n`}
         {`\n`}
         {`export default Home\n`}
       </CodeBlock>
-      <Typography>
-        In the <Code>Home</Code> component, I've used <Code>Typography</Code> as
-        a placeholder. We will come back to it later. For the <Code>Post</Code>{" "}
+      <Text>
+        In the <Code>Home</Code> component, I've used <Code>Text</Code> as a
+        placeholder. We will come back to it later. For the <Code>Post</Code>{" "}
         component, have it accept a <Code>post</Code> prop. For now this will be
         a key to access our post data. We will come back to this below to show
         how we will access the actual post content.
-      </Typography>
+      </Text>
       <CodeBlock>
         {`// src/app/components/post/index.jsx\n`}
         {`\n`}
         {`import React from "react";\n`}
-        {`import { Typography } from "@material-ui/core";\n`}
+        {`import { Text } from "@material-ui/core";\n`}
         {`\n`}
         {`const Post = ({ post }) => {\n`}
         {`  return (\n`}
         {`    <Page>\n`}
-        {`      <Typography>\n`}
+        {`      <Text>\n`}
         {`        {post}\n`}
-        {`      </Typography>\n`}
+        {`      </Text>\n`}
         {`      <Component />\n`}
         {`    </Page>\n`}
         {`  );\n`}
@@ -176,22 +176,22 @@ const Implementation = () => {
         {`\n`}
         {`export default Post\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         In my blog, I've decided that content will include a <Code>title</Code>{" "}
         string, and a React <Code>component</Code>. This means every I write
         will export the following:
-      </Typography>
+      </Text>
       <CodeBlock language="json">
         {`{ content: { title, Component } }\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         We will keep a listing of posts in{" "}
         <Code>src/components/post/entry/listing.json</Code> and generate pages
         for them dynamically. The listing will simply be an array with the name
         of every entry. Each time you add an entry, remember to modify this
         file. With a listing in place, lets see how we can import this in{" "}
         <Code>src/app/index.jsx</Code>:
-      </Typography>
+      </Text>
       <CodeBlock>
         {`// src/app/index.jsx\n`}
         {`\n`}
@@ -204,7 +204,7 @@ const Implementation = () => {
         {`  })\n`}
         {`);`}
       </CodeBlock>
-      <Typography>
+      <Text>
         This will create a mapping of the names of posts to their content. Now
         that posts are loaded, we need a way to render the correct content.
         Since this is a static site, every page will use <Code>/</Code>. If we
@@ -212,7 +212,7 @@ const Implementation = () => {
         generate html resources for these. I believe {links.reactStatic} can do
         this, but I have't tried this tool yet. Instead, what we will do is use
         a URL query parameter!
-      </Typography>
+      </Text>
       <CodeBlock language={"jsx"}>
         {`// src/app/index.jsx\n`}
         {`\n`}
@@ -233,11 +233,11 @@ const Implementation = () => {
         {`\n`}
         {`export default App;\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         At this point all you need to is create your first post entry! Don't
         forget, you will need to export a content object. This can be as simple
         as this:
-      </Typography>
+      </Text>
       <CodeBlock language="jsx">
         {`// src/app/components/post/entry/new_entry.jsx\n`}
         {`\n`}
@@ -247,9 +247,9 @@ const Implementation = () => {
         {`const Component = () => {\n`}
         {`\n`}
         {`  return (\n`}
-        {`    <Typography>\n`}
+        {`    <Text>\n`}
         {`      Welcome to my first blog post!\n`}
-        {`    <Typography/>\n`}
+        {`    <Text/>\n`}
         {`  )\n`}
         {`}\n`}
         {`\n`}
@@ -257,7 +257,7 @@ const Implementation = () => {
         {`export default content;\n`}
       </CodeBlock>
       <Gap />
-      <Typography>
+      <Text>
         Ok, almost done. Recall that we only passed the URL parameter{" "}
         <Code>post</Code> as a prop to the <Code>Post</Code> component in{" "}
         <Code>App</Code>. Obviously this is only a string, not the actual
@@ -265,11 +265,11 @@ const Implementation = () => {
         from the <Code>posts</Code> table we created in <Code>App</Code>. While
         this would be perfectly acceptable in this case, I'm going to show you
         how we can use a react context.
-      </Typography>
+      </Text>
       <Gap />
-      <Typography>
+      <Text>
         Start by defining the context in <Code>src/app/context.jsx</Code>:
-      </Typography>
+      </Text>
       <CodeBlock>
         {`// src/app/context.jsx\n`}
         {`\n`}
@@ -278,10 +278,10 @@ const Implementation = () => {
         {`const AppContext = React.createContext();\n`}
         {`export default AppContext;\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         Next, lets revisit out <Code>App</Code> component. Go back and import
         the context, then wrap the return code with a provider as follows:
-      </Typography>
+      </Text>
       <CodeBlock language={"jsx"}>
         {`// src/app/index.jsx\n`}
         {`\n`}
@@ -298,18 +298,18 @@ const Implementation = () => {
         {`\n`}
         {`// ...\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         Now every component that exists "beneath" the provider will have the
         context made available to them!
-      </Typography>
+      </Text>
       <Gap />
-      <Typography>
+      <Text>
         So lets revist our <Code>Home</Code> component, and use the react
         context hook <Code>useContext</Code>. This will give you access to every
         post! It's up to you on how you wish to showcase them. I've used the{" "}
         {links.materialUI} <Code>Grid</Code> component and a custom{" "}
         <Code>Card</Code> component.
-      </Typography>
+      </Text>
       <CodeBlock language={"jsx"}>
         {`// src/app/components/home/index.jsx\n`}
         {`\n`}
@@ -343,16 +343,16 @@ const Implementation = () => {
         {`\n`}
         {`// ...\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         Lets also revist our <Code>Post</Code> component. Recall that we passed
         a <Code>post</Code> key as a prop. We can now use that key to get the
         content!
-      </Typography>
+      </Text>
       <CodeBlock language={"jsx"}>
         {`// src/app/components/post/index.jsx\n`}
         {`\n`}
         {`import React, { useContext } from "react";\n`}
-        {`import { Typography } from "@material-ui/core";\n`}
+        {`import { Text } from "@material-ui/core";\n`}
         {`import AppContext from "../../context";\n`}
         {`\n`}
         {`const Post = ({ post }) => {\n`}
@@ -360,9 +360,9 @@ const Implementation = () => {
         {`  const { title, Component } = posts[post];\n`}
         {`  return (\n`}
         {`    <Page>\n`}
-        {`      <Typography>\n`}
+        {`      <Text>\n`}
         {`        {title}\n`}
-        {`      </Typography>\n`}
+        {`      </Text>\n`}
         {`      <Component />\n`}
         {`    </Page>\n`}
         {`  );\n`}
@@ -370,16 +370,16 @@ const Implementation = () => {
         {`\n`}
         {`export default Post\n`}
       </CodeBlock>
-      <Typography>
+      <Text>
         Well that pretty much covers everything! At this point, you should
         consider creating reusable components for every post you make. For
         example, the check lists, code blocks, and file hierarchy you see on
         this page are components I've added to{" "}
         <Code>src/app/components/common/content</Code>. All that's left is
         adding sex appeal to your blog! Happy coding!
-      </Typography>
+      </Text>
       <Gap />
-      <Typography>Cheers</Typography>
+      <Text>Cheers</Text>
     </>
   );
 };

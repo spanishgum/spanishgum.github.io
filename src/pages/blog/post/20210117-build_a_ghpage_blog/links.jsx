@@ -1,5 +1,5 @@
 import React from "react";
-import LinkedText from "../../../common/content/linked_text";
+import LinkedText from "components/content/linked_text";
 
 const links = {
   createReactApp: (

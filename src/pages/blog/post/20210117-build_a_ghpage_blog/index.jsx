@@ -1,5 +1,5 @@
 import React from "react";
-import { Section } from "../../../common/content";
+import { Section } from "components/content";
 import Overview from "./overview";
 import Implementation from "./implementation";
 
@@ -18,4 +18,5 @@ const Component = () => {
   );
 };
 
-export { title, description, Component };
+export default Component;
+export { title, description };
