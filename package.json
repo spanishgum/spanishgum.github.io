@@ -9,7 +9,7 @@
     "build": "react-static build",
     "analyze": "react-static build --analyze",
     "serve": "serve dist -p 3000",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -b master -d dist",
     "lint": "eslint src/ --fix"
   },
   "dependencies": {
