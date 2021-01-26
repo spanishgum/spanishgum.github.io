@@ -1,16 +1,28 @@
 import React from "react";
-import { Section, Code } from "components/content";
-import { Typography } from "@material-ui/core";
+import { Section, SectionView } from "components/content";
+import Overview from "./overview";
+import Setup from "./setup";
+import Configuration from "./configuration";
+import Implementation from "./implementation";
 
-export default () => {
+const Component = () => {
+  const sections = {
+    Overview: Overview,
+    Setup: Setup,
+    Configuration: Configuration,
+    Implementation: Implementation,
+  };
   return (
     <>
-      <Section key={"Overview"} heading={"Overview"}>
-        <Typography>
-          Coming soon. This site is currently built with react-static so you can
-          checkout the <Code>dev</Code> branch if you're curious.
-        </Typography>
-      </Section>
+      <SectionView>
+        {Object.entries(sections).map(([key, comp]) => (
+          <Section key={key} heading={key}>
+            {comp}
+          </Section>
+        ))}
+      </SectionView>
     </>
   );
 };
+
+export default Component;

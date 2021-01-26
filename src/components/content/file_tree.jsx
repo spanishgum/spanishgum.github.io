@@ -12,28 +12,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FileTreeView = ({ children }) => {
+const FileTree = ({ data }) => {
   const { fileTreeBoxStyle } = useStyles();
+  const expanded = [];
+
+  const renderTree = (nodes) => {
+    const { id, name, children } = nodes;
+    const nodeId = id ? id : name;
+    expanded.push(nodeId);
+    return (
+      <TreeItem key={nodeId} nodeId={nodeId} label={name}>
+        {Array.isArray(children)
+          ? children.map((node) => renderTree(node))
+          : null}
+      </TreeItem>
+    );
+  };
+
   return (
     <Box className={fileTreeBoxStyle}>
       <Paper>
         <TreeView
           defaultCollapseIcon={<ExpandMoreIcon />}
+          defaultExpanded={expanded}
           defaultExpandIcon={<ChevronRightIcon />}
         >
-          {children}
+          {renderTree(data)}
         </TreeView>
       </Paper>
     </Box>
   );
 };
 
-const FileTreeItem = ({ text, children }) => {
-  return (
-    <TreeItem nodeId={text} label={text}>
-      {children}
-    </TreeItem>
-  );
-};
-
-export { FileTreeView, FileTreeItem };
+export default FileTree;

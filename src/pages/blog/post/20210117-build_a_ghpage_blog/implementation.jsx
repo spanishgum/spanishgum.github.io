@@ -4,8 +4,7 @@ import {
   Gap,
   Code,
   CodeBlock,
-  FileTreeView,
-  FileTreeItem,
+  FileTree,
   BulletListView,
   BulletListItem,
   Text,
@@ -42,38 +41,89 @@ const Implementation = () => {
         having an <Code>index.jsx</Code> file in your folder allows you to
         import directly from the folder name.
       </Text>
-      <FileTreeView>
-        <FileTreeItem text="src">
-          <FileTreeItem text="app">
-            <FileTreeItem text="components">
-              <FileTreeItem text="common">
-                <FileTreeItem text="page">
-                  <FileTreeItem text="body.jsx" />
-                  <FileTreeItem text="footer.jsx" />
-                  <FileTreeItem text="header.jsx" />
-                  <FileTreeItem text="index.jsx" />
-                </FileTreeItem>
-              </FileTreeItem>
-              <FileTreeItem text="home">
-                <FileTreeItem text="index.jsx" />
-              </FileTreeItem>
-              <FileTreeItem text="post">
-                <FileTreeItem text="entry">
-                  <FileTreeItem text="example_entry_using_folder">
-                    <FileTreeItem text="index.json" />
-                  </FileTreeItem>
-                  <FileTreeItem text="example_entry_using_file.jsx" />
-                </FileTreeItem>
-                <FileTreeItem text="index.jsx" />
-                <FileTreeItem text="listing.json" />
-              </FileTreeItem>
-            </FileTreeItem>
-          </FileTreeItem>
-          <FileTreeItem text="context.jsx" />
-          <FileTreeItem text="index.jsx" />
-          <FileTreeItem text="theme.jsx" />
-        </FileTreeItem>
-      </FileTreeView>
+      <FileTree
+        data={{
+          name: "src",
+          children: [
+            {
+              name: "app",
+              children: [
+                {
+                  name: "components",
+                  children: [
+                    {
+                      name: "common",
+                      children: [
+                        {
+                          name: "page",
+                          children: [
+                            {
+                              name: "body.jsx",
+                            },
+                            {
+                              name: "footer.jsx",
+                            },
+                            {
+                              name: "header.jsx",
+                            },
+                            {
+                              name: "index.jsx",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      name: "home",
+                      children: [
+                        {
+                          name: "index.jsx",
+                        },
+                      ],
+                    },
+                    {
+                      name: "post",
+                      children: [
+                        {
+                          name: "entry",
+                          children: [
+                            {
+                              name: "example_entry_using_folder",
+                              children: [
+                                {
+                                  name: "index.jsx",
+                                },
+                              ],
+                            },
+                            {
+                              name: "example_entry_using_file.jsx",
+                            },
+                          ],
+                        },
+                        {
+                          name: "index.jsx",
+                        },
+                        {
+                          name: "listing.json",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "context.jsx",
+            },
+            {
+              name: "index.jsx",
+            },
+            {
+              name: "theme.jsx",
+            },
+          ],
+        }}
+      />
       <Text>
         Let's start with the overall page layout. You'll notice a{" "}
         <Code>src/app/components/common/page</Code> folder. This will be where
