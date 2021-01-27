@@ -1,16 +1,21 @@
 import React from "react";
-import { Box } from "@material-ui/core";
+import { Box, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   bodyBoxStyle: {
-    padding: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
   },
 }));
 
 const Body = ({ children }) => {
   const { bodyBoxStyle } = useStyles();
-  return <Box className={bodyBoxStyle}>{children}</Box>;
+  return (
+    <Container>
+      <Box className={bodyBoxStyle}>{children}</Box>
+    </Container>
+  );
 };
 
 export default Body;
