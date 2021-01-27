@@ -24,16 +24,20 @@ const Setup = () => {
         To deploy this app, we are going to use <Code>{links.ghPages}</Code>:
       </Text>
       <CodeBlock language={"jsx"}>{snippets.installGhPages}</CodeBlock>
-      <Text> After installing, add this scripts:</Text>
+      <Text>
+        {" "}
+        Now, modify your <Code>package.json</Code> scripts:
+      </Text>
       <CodeBlock language={"jsx"}>{snippets.scripts}</CodeBlock>
       <Text>
-        We need to be careful here though. <Code>{links.reactStatic}</Code> will
-        be generating a lot of files, some that start with underscores. For this
-        reason, we need to make sure we always have a empty{" "}
-        <Code>dist/.nojekyll</Code> file committed to master. Make sure you're{" "}
-        <Code>.gitignore</Code> is set up to handle this. This tells GitHub to
-        avoid their Jekyll deployment pipeline and just present the existing
-        static files as they are.
+        We modify the build script definitition so that every time the directory
+        is rebuilt, a <Code>.nojekyll</Code> file is created. This tells GitHub
+        to avoid their Jekyll deployment pipeline and just present the existing
+        static files as they are. Without this, static files with leading
+        underscores will not be served. This causes a problem as{" "}
+        <Code>{links.reactStatic}</Code> generates a lot of files that start
+        with underscores. You'll might want to update your{" "}
+        <Code>.gitignore</Code> to handle this.
       </Text>
     </>
   );

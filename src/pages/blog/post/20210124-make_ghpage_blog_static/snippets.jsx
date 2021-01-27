@@ -4,7 +4,8 @@ react-static create
 const installGhPages = `yarn add gh-pages
 `;
 const scripts = `"scripts": {
-  "deploy": "gh-pages -t true -b master -d dist",
+  "build": "react-static build && touch dist/.nojekyll", # modified
+  "deploy": "gh-pages -t true -b master -d dist", # added
 },`;
 const startingStaticConfig = `export default {
   maxThreads: 1, // Remove this when you start doing any static generation
