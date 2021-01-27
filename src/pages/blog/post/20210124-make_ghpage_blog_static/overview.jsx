@@ -1,6 +1,6 @@
 import React from "react";
 import links from "./links";
-import { Gap, Code, Text } from "components/content";
+import { Code, Text } from "components/content";
 
 const Overview = () => {
   return (
@@ -14,7 +14,6 @@ const Overview = () => {
         In this post I will show you how to fix this by building your blog with{" "}
         <Code>{links.reactStatic}</Code>.
       </Text>
-      <Gap />
       <Text>
         As we dive into <Code>{links.reactStatic}</Code>, it will help to have a
         basic understanding of <Code>{links.webpack}</Code>, and{" "}

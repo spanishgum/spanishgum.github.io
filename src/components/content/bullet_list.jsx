@@ -1,29 +1,21 @@
 import React, { useState } from "react";
 import {
-  Box,
   Paper,
   List,
   ListItem,
   ListItemIcon,
   Checkbox,
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  bulletListBoxStyle: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-  },
-}));
+import Wrapper from "./wrapper";
 
 const BulletListView = ({ children }) => {
-  const { bulletListBoxStyle } = useStyles();
   return (
-    <Box className={bulletListBoxStyle}>
+    <Wrapper>
       <Paper>
         <List dense>{children}</List>
       </Paper>
-    </Box>
+    </Wrapper>
   );
 };
 

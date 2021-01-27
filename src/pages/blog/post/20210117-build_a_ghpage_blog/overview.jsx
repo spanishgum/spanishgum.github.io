@@ -1,7 +1,6 @@
 import React from "react";
 import links from "./links";
 import {
-  Gap,
   Code,
   CodeBlock,
   Text,
@@ -46,7 +45,6 @@ const Overview = () => {
         sites, we are going to stick to using plain {links.createReactApp} with
         the single index file it generates.
       </Text>
-      <Gap />
       <Text>
         Start by creating your react app and installing dependencies mentioned.
         Note that you don't have to use {links.materialUI}. I will throughout

@@ -1,6 +1,6 @@
 import React from "react";
 import snippets from "./snippets";
-import { Gap, Code, CodeBlock, Text, FileTree } from "components/content";
+import { Code, CodeBlock, Text, FileTree } from "components/content";
 import links from "./links";
 
 const Configuration = () => {
@@ -96,7 +96,6 @@ const Configuration = () => {
         will come back to that. First, let's talk about <Code>getRoutes</Code>{" "}
         and <Code>getData</Code>.
       </Text>
-      <Gap />
       <Text>
         <Code>getRoutes</Code> is a critical component that defines our static
         routes. This is how <Code>{links.reactStatic}</Code> decideds what{" "}
@@ -110,7 +109,6 @@ const Configuration = () => {
         it that that, but if you've never touched <Code>{links.webpack}</Code>{" "}
         before, this takes you one step closer. Neat!
       </Text>
-      <Gap />
       <Text>
         <Code>getData</Code> isn't actually necessary in general. This sets up a
         hook to provide data to the components defined by the template key. This
@@ -119,7 +117,6 @@ const Configuration = () => {
         components, you would use the provided hook <Code>useRouteData()</Code>{" "}
         to access whats returned by these functions.
       </Text>
-      <Gap />
       <Text>
         If you looked at the <Code>basic</Code> boilerplate template, you may
         have noticed that every blog post was actually rendered by a single
@@ -128,7 +125,6 @@ const Configuration = () => {
         wanted every post to be free from limitation, so I opted for a unique
         template for every post.
       </Text>
-      <Gap />
       <Text>
         Ok, so above I mentioned a caveat. Here goes. If you poked around at
         some other examples online, you may have found a plugin that you can add

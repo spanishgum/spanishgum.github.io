@@ -1,7 +1,6 @@
 import React from "react";
 import links from "./links";
 import {
-  Gap,
   Code,
   CodeBlock,
   FileTree,
@@ -175,7 +174,6 @@ const Implementation = () => {
         the <Code>Body</Code> component. This will give us a consistent look and
         feel. Great!
       </Text>
-      <Gap />
       <Text>
         Go ahead and create components for the <Code>Home</Code> and{" "}
         <Code>Post</Code> components using their respective{" "}
@@ -306,7 +304,6 @@ const Implementation = () => {
         {`const content = { title, Component }\n`}
         {`export default content;\n`}
       </CodeBlock>
-      <Gap />
       <Text>
         Ok, almost done. Recall that we only passed the URL parameter{" "}
         <Code>post</Code> as a prop to the <Code>Post</Code> component in{" "}
@@ -316,7 +313,6 @@ const Implementation = () => {
         this would be perfectly acceptable in this case, I'm going to show you
         how we can use a react context.
       </Text>
-      <Gap />
       <Text>
         Start by defining the context in <Code>src/app/context.jsx</Code>:
       </Text>
@@ -352,7 +348,6 @@ const Implementation = () => {
         Now every component that exists "beneath" the provider will have the
         context made available to them!
       </Text>
-      <Gap />
       <Text>
         So lets revist our <Code>Home</Code> component, and use the react
         context hook <Code>useContext</Code>. This will give you access to every
@@ -428,7 +423,6 @@ const Implementation = () => {
         <Code>src/app/components/common/content</Code>. All that's left is
         adding sex appeal to your blog! Happy coding!
       </Text>
-      <Gap />
       <Text>Cheers</Text>
     </>
   );

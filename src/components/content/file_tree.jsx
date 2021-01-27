@@ -1,19 +1,11 @@
 import React from "react";
-import { Box, Paper } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import { TreeView, TreeItem } from "@material-ui/lab";
-import { makeStyles } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-
-const useStyles = makeStyles((theme) => ({
-  fileTreeBoxStyle: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-  },
-}));
+import Wrapper from "./wrapper";
 
 const FileTree = ({ data }) => {
-  const { fileTreeBoxStyle } = useStyles();
   const expanded = [];
 
   const renderTree = (nodes) => {
@@ -30,7 +22,7 @@ const FileTree = ({ data }) => {
   };
 
   return (
-    <Box className={fileTreeBoxStyle}>
+    <Wrapper>
       <Paper>
         <TreeView
           defaultCollapseIcon={<ExpandMoreIcon />}
@@ -40,7 +32,7 @@ const FileTree = ({ data }) => {
           {renderTree(data)}
         </TreeView>
       </Paper>
-    </Box>
+    </Wrapper>
   );
 };
 

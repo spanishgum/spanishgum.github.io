@@ -20,6 +20,21 @@ const Setup = () => {
         poke around the code. See if you can get an idea for how it is put
         together.
       </Text>
+      <Text>
+        To deploy this app, we are going to use <Code>{links.ghPages}</Code>:
+      </Text>
+      <CodeBlock language={"jsx"}>{snippets.installGhPages}</CodeBlock>
+      <Text> After installing, add this scripts:</Text>
+      <CodeBlock language={"jsx"}>{snippets.scripts}</CodeBlock>
+      <Text>
+        We need to be careful here though. <Code>{links.reactStatic}</Code> will
+        be generating a lot of files, some that start with underscores. For this
+        reason, we need to make sure we always have a empty{" "}
+        <Code>dist/.nojekyll</Code> file committed to master. Make sure you're{" "}
+        <Code>.gitignore</Code> is set up to handle this. This tells GitHub to
+        avoid their Jekyll deployment pipeline and just present the existing
+        static files as they are.
+      </Text>
     </>
   );
 };

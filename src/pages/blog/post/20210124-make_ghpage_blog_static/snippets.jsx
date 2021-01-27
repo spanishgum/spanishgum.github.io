@@ -1,6 +1,11 @@
 const install = `yarn global add react-static
 react-static create
 `;
+const installGhPages = `yarn add gh-pages
+`;
+const scripts = `"scripts": {
+  "deploy": "gh-pages -t true -b master -d dist",
+},`;
 const startingStaticConfig = `export default {
   maxThreads: 1, // Remove this when you start doing any static generation
 }`;
@@ -87,6 +92,8 @@ export default App;
 
 export default {
   install,
+  installGhPages,
+  scripts,
   startingStaticConfig,
   customStaticConfig,
   blogPostsJson,

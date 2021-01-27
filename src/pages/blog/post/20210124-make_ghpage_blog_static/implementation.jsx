@@ -1,6 +1,6 @@
 import React from "react";
 import snippets from "./snippets";
-import { Gap, Code, CodeBlock, Text } from "components/content";
+import { Code, CodeBlock, Text } from "components/content";
 import links from "./links";
 
 const Implementation = () => {
@@ -40,13 +40,11 @@ const Implementation = () => {
         defined by our <Code>template</Code> keys in{" "}
         <Code>static.config.js</Code>!
       </Text>
-      <Gap />
       <Text>
         And with that, you should be good to go! Be sure to check out my{" "}
         <Code>dev</Code> branch if you get stuck, or want to check out how I do
         my components.
       </Text>
-      <Gap />
       <Text>Cheers!</Text>
     </>
   );

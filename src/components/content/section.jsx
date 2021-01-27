@@ -1,24 +1,31 @@
 import React from "react";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Gap from "./gap";
 
 const useStyles = makeStyles((theme) => ({
-  sectionBoxStyle: {
-    padding: theme.spacing(2),
+  viewBoxStyle: {
+    padding: theme.spacing(1),
+  },
+  headingBoxStyle: {
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+  },
+  contentBoxStyle: {
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
   },
 }));
 
 const Section = ({ heading, children }) => {
-  const { sectionBoxStyle } = useStyles();
+  const { viewBoxStyle, headingBoxStyle, contentBoxStyle } = useStyles();
+
   return (
     <>
-      <Box className={sectionBoxStyle}>
-        <Box>
+      <Box className={viewBoxStyle}>
+        <Box className={headingBoxStyle}>
           <Typography variant="h5">{heading}</Typography>
         </Box>
-        <Gap />
-        <Box>{children}</Box>
+        <Box className={contentBoxStyle}>{children}</Box>
       </Box>
     </>
   );
