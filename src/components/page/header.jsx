@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@material-ui/core";
+import { Link } from "@reach/router";
 import { AppBar, Typography, Toolbar } from "@material-ui/core";
 import ThemeButton from "./theme_button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,18 +8,20 @@ const useStyles = makeStyles((theme) => ({
   toolbarSpacerStyle: {
     ...theme.mixins.toolbar,
   },
+  linkStyle: {
+    textDecoration: "none",
+    color: theme.palette.text.primary,
+  },
 }));
 
 const Header = ({ themeToggle }) => {
-  const { toolbarSpacerStyle } = useStyles();
+  const { linkStyle, toolbarSpacerStyle } = useStyles();
   return (
     <>
-      <AppBar>
+      <AppBar color="inherit">
         <Toolbar variant="dense">
-          <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
-            <Typography key="title" variant="h5">
-              spanishgum
-            </Typography>
+          <Link to="/" className={linkStyle}>
+            <Typography variant="h5">spanishgum</Typography>
           </Link>
           <ThemeButton themeToggle={themeToggle} />
         </Toolbar>
