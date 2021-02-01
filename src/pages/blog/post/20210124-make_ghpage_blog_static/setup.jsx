@@ -11,7 +11,7 @@ const Setup = () => {
         to use <Code>{links.reactStatic}</Code> to build some starter
         boilerplate:
       </Text>
-      <CodeBlock language={"jsx"}>{snippets.install}</CodeBlock>
+      <CodeBlock language={"bash"}>{snippets.install}</CodeBlock>
       <Text>
         After giving a name, you should be presented with a list of boilerplate
         options. We are going to start from the <Code>blank</Code> template.

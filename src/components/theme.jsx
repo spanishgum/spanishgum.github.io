@@ -1,15 +1,18 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
-// eslint-disable-next-line
+const lightTheme = createMuiTheme({
+  palette: {
+    type: "light",
+  },
+});
+
 const darkTheme = createMuiTheme({
   palette: {
     type: "dark",
   },
 });
 
-const lightTheme = createMuiTheme({
-  palette: {},
-});
-
-// export default darkTheme;
-export default lightTheme;
+export default {
+  light: lightTheme,
+  dark: darkTheme,
+};

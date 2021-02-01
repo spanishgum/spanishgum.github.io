@@ -1,22 +1,37 @@
-import React, { useRef, useEffect } from "react";
-import hljs from "highlightjs";
-import "highlightjs/styles/codepen-embed.css";
+import React from "react";
+import { Box } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import {
+  materialLight as light,
+  materialDark as dark,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 import Wrapper from "./wrapper";
 
-hljs.initHighlightingOnLoad();
+const useStyles = makeStyles((theme) => ({
+  codeBlockBoxStyle: {
+    border: "solid",
+    borderWidth: 1,
+    borderColor: theme.palette.text.primary,
+    borderRadius: theme.shape.borderRadius,
+  },
+}));
 
 const CodeBlock = ({ language, children }) => {
-  const ref = useRef();
-  useEffect(() => {
-    if (ref.current) {
-      hljs.highlightBlock(ref.current);
-    }
-  }, []);
+  const {
+    palette: { type },
+  } = useTheme();
+  const isDark = type === "dark";
+
+  const { codeBlockBoxStyle } = useStyles();
+
   return (
     <Wrapper>
-      <pre ref={ref}>
-        <code className={language}>{children}</code>
-      </pre>
+      <Box className={codeBlockBoxStyle}>
+        <SyntaxHighlighter language={language} style={isDark ? dark : light}>
+          {children}
+        </SyntaxHighlighter>
+      </Box>
     </Wrapper>
   );
 };

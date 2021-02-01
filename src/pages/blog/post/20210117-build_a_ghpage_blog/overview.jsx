@@ -7,6 +7,7 @@ import {
   BulletListView,
   BulletListItem,
 } from "components/content";
+import snippets from "./snippets";
 
 const Overview = () => {
   return (
@@ -51,32 +52,16 @@ const Overview = () => {
         this post to provide some basic page elements. Feel free to ignore them
         and find/build your own compnoents.
       </Text>
-      <CodeBlock language={"bash"}>
-        {`npx create-react-app $GITHUB_USERNAME.github.io\n`}
-        {`cd $GITHUB_USERNAME.github.io\n`}
-        {`yarn add gh-pages            # manage pushing to github\n`}
-        {`\n# Below are optional, choose what you want to use\n`}
-        {`yarn add @material-ui/core   # core design components\n`}
-        {`yarn add @material-ui/styles # theming\n`}
-        {`yarn add @material-ui/icons  # simple icons \n`}
-        {`yarn add @material-ui/lab    # experimental componments`}
-      </CodeBlock>
+      <CodeBlock language={"bash"}>{snippets.dependencies}</CodeBlock>
       <Text>
         Next, you should add a script to your <Code>package.json</Code> for
         quick deployment:
       </Text>
-      <CodeBlock language={"json"}>
-        {`"scripts": {\n`}
-        {`  "deploy": "gh-pages -b master -d build",\n`}
-        {`}`}
-      </CodeBlock>
+      <CodeBlock language={"json"}>{snippets.scripts}</CodeBlock>
       <Text>
         Now every time you want to publish your site, you can run this:
       </Text>
-      <CodeBlock language={"bash"}>
-        {`yarn build\n`}
-        {`yarn deploy`}
-      </CodeBlock>
+      <CodeBlock language={"bash"}>{snippets.publish}</CodeBlock>
       <Text>
         You may also want to ignore the <Code>build</Code> directory in your{" "}
         <Code>.gitignore</Code>.

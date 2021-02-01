@@ -18,14 +18,14 @@ const Implementation = () => {
         template! This means this component can be your generic structure if you
         want! For example, this is my implementation:
       </Text>
-      <CodeBlock>{snippets.appComponent}</CodeBlock>
+      <CodeBlock language={"jsx"}>{snippets.appComponent}</CodeBlock>
       <Text>
         If you look deeper into the library, you will find there are specific
         tools for creating common structure like{" "}
         <Code>{links.reactStaticDocument}</Code>. For now, if you ignore all of
         the personalization stuff, you're really left with this:
       </Text>
-      <CodeBlock>{snippets.appComponentTrimmed}</CodeBlock>
+      <CodeBlock language={"jsx"}>{snippets.appComponentTrimmed}</CodeBlock>
       <Text>
         If you haven't seen <Code>React.Suspense</Code>, all it does is render
         the <Code>fallback</Code> until the data provided by the curret route is

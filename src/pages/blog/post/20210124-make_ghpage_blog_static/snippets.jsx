@@ -1,15 +1,17 @@
 const install = `yarn global add react-static
-react-static create
-`;
-const installGhPages = `yarn add gh-pages
-`;
+react-static create`;
+
+const installGhPages = `yarn add gh-pages`;
+
 const scripts = `"scripts": {
   "build": "react-static build && touch dist/.nojekyll", # modified
   "deploy": "gh-pages -t true -b master -d dist", # added
 },`;
+
 const startingStaticConfig = `export default {
   maxThreads: 1, // Remove this when you start doing any static generation
 }`;
+
 const customStaticConfig = `const posts = require("./src/blog_posts.json");
 
 const linkedPosts = posts.map((post) => ({
@@ -34,8 +36,8 @@ export default {
       })),
     ];
   },
-};
-`;
+};`;
+
 const blogPostsJson = `[
   {
     "id": "20210117-build_a_ghpage_blog",
@@ -46,6 +48,7 @@ const blogPostsJson = `[
     "title": "Build a github page blog with react-static"
   }
 ]`;
+
 const appComponent = `import React from "react";
 import { Root, Routes } from "react-static";
 import { Router } from "@reach/router";
@@ -73,10 +76,9 @@ const App = () => {
   );
 };
 
-export default App;
-`;
-const appComponentTrimmed = `
-const App = () => {
+export default App;`;
+
+const appComponentTrimmed = `const App = () => {
   return (
     <Root>
       <React.Suspense fallback={<em>Loading...</em>}>
@@ -88,8 +90,7 @@ const App = () => {
   );
 };
 
-export default App;
-`;
+export default App;`;
 
 export default {
   install,
