@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+.astro/
+
+# test output
+coverage/
+playwright-report/
+test-results/
+.vitest/
+
+# editor / OS
+.DS_Store
+.idea/
+*.swp
+
+# env
+.env
+.env.local
+.env.*.local
