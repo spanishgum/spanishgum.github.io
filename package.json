@@ -15,7 +15,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@tailwindcss/vite": "^4",
     "astro": "^6.2.1",
+    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }
