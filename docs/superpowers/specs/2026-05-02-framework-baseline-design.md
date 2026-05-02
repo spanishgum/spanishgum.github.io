@@ -123,10 +123,12 @@ Two stages — fast commits, full validation at push:
 
 **`pre-commit`** (target <2s):
 - Biome `--write` on staged files (auto-fixes formatting), re-stages affected files.
-- Astro `check` scoped to staged `.astro` / `.ts` / `.tsx` / `.mdx` files.
+- Biome `lint` on staged files (catches what auto-fix can't).
+
+Type checking is intentionally NOT in pre-commit: `astro check` is whole-project and adds multi-second latency that would make small commits painful. Type errors are caught at pre-push and in CI.
 
 **`pre-push`** (30–60s):
-- Full `pnpm validate`.
+- Full `pnpm validate` (which includes `astro check`).
 
 Bypass only with explicit `--no-verify`. Honors Adam's "lightweight commits I can come back to" + "all commits build and test" constraint by splitting the cost: cheap at commit time, exhaustive at push time. CI is the third line of defense, not the first.
 
