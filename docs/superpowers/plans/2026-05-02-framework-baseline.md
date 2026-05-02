@@ -343,8 +343,10 @@ Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 - [ ] **Step 1: Install MDX integration**
 
 ```bash
-pnpm add -D @astrojs/mdx@^4
+pnpm add -D @astrojs/mdx@^5
 ```
+
+(`@astrojs/mdx@^4` peers to Astro 5; v5+ is required for Astro 6.)
 
 - [ ] **Step 2: Update astro.config.mjs**
 
