@@ -582,7 +582,7 @@ Edit `package.json` `scripts` section:
     "preview": "astro preview",
     "check": "astro check",
     "lint": "biome check .",
-    "format": "biome check --write ."
+    "format": "biome format --write ."
   }
 }
 ```
