@@ -1,0 +1,230 @@
+---
+const designs = [
+  {
+    slug: 'terminal',
+    name: 'Terminal / CLI',
+    blurb: 'Phosphor green on near-black. ASCII banner, ls -la post listing, vim status bar.',
+    palette: ['#0a0f0a', '#4afa7b', '#e8c547', '#58c4dd'],
+    label: 'dark · monospace',
+  },
+  {
+    slug: 'editorial',
+    name: 'Editorial / Zine',
+    blurb: 'Cream paper, serif typography, drop caps, and a deep ink-red accent. A magazine.',
+    palette: ['#f3eada', '#1a1714', '#b13c20', '#7a6e58'],
+    label: 'cream · serif',
+  },
+  {
+    slug: 'bento',
+    name: 'Bento Grid',
+    blurb: 'Slate dashboard with status tiles, live indicators, and a now-playing rhythm.',
+    palette: ['#0b1220', '#10b981', '#f59e0b', '#a78bfa'],
+    label: 'slate · grid',
+  },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>spanishgum :: design variants</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght,SOFT@9..144,400..700,0..100&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #0e0e10;
+        --paper: #f5efe2;
+        --ink: #161616;
+        --rule: rgba(255, 255, 255, 0.08);
+        --accent: #ffb446;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: #0c0c0e;
+        background-image:
+          radial-gradient(ellipse at 20% 0%, rgba(255, 180, 70, 0.06), transparent 60%),
+          radial-gradient(ellipse at 80% 100%, rgba(120, 220, 180, 0.04), transparent 60%);
+        color: #e6e2d6;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 14px;
+        min-height: 100vh;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 32px 100px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 12px;
+      }
+      h1 {
+        font-family: 'Fraunces', 'Times New Roman', serif;
+        font-variation-settings: 'opsz' 144, 'SOFT' 30, 'wght' 500;
+        font-weight: 500;
+        font-size: clamp(40px, 7vw, 88px);
+        line-height: 0.95;
+        letter-spacing: -0.025em;
+        margin: 0 0 22px;
+        color: #f5efe2;
+      }
+      h1 em {
+        font-style: italic;
+        font-variation-settings: 'opsz' 144, 'SOFT' 100, 'wght' 400;
+        color: var(--accent);
+      }
+      .lede {
+        max-width: 56ch;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #b8b3a3;
+      }
+      .meta {
+        margin: 22px 0 60px;
+        font-size: 12px;
+        color: #7a7466;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .meta span::before { content: '· '; color: #4a4538; margin-right: 4px; }
+      .meta span:first-child::before { content: ''; margin: 0; }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+      .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.018);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        text-decoration: none;
+        color: inherit;
+        overflow: hidden;
+        transition: border-color 0.2s ease, transform 0.25s ease, background 0.25s ease;
+      }
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, transparent 60%, rgba(255, 180, 70, 0.04) 100%);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      .card:hover {
+        border-color: rgba(255, 180, 70, 0.35);
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.025);
+      }
+      .card:hover::before { opacity: 1; }
+
+      .swatch-row { display: flex; gap: 4px; }
+      .swatch {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+      }
+      .num {
+        font-family: 'Fraunces', serif;
+        font-variation-settings: 'opsz' 144, 'wght' 400;
+        font-style: italic;
+        font-size: 38px;
+        line-height: 1;
+        color: var(--accent);
+        opacity: 0.9;
+      }
+      .name {
+        font-family: 'Fraunces', serif;
+        font-variation-settings: 'opsz' 96, 'wght' 500;
+        font-size: 24px;
+        line-height: 1.1;
+        color: #f5efe2;
+        margin: -2px 0 0;
+      }
+      .blurb {
+        color: #aea798;
+        font-size: 13.5px;
+        line-height: 1.6;
+        flex: 1;
+      }
+      .label {
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #7a7466;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 4px;
+        padding-top: 14px;
+        border-top: 1px dashed rgba(255,255,255,0.08);
+      }
+      .label .arrow { color: var(--accent); transition: transform 0.2s ease; }
+      .card:hover .label .arrow { transform: translateX(4px); }
+
+      .footer {
+        margin-top: 80px;
+        padding-top: 24px;
+        border-top: 1px solid var(--rule);
+        font-size: 12px;
+        color: #6a6555;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .footer a { color: var(--accent); text-decoration: none; }
+      .footer a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <p class="eyebrow">v2 · design exploration</p>
+      <h1>Three rooms, <em>one</em> house.</h1>
+      <p class="lede">
+        Three landing-page directions for the spanishgum blog. Same content, three personalities — pick the one that fits the writing best, or steal pieces from each. Click through to see the full landing in context.
+      </p>
+      <p class="meta">
+        <span>2026 · 05 · 02</span>
+        <span>{designs.length} variants</span>
+        <span>self-contained routes</span>
+        <span>astro · tailwind · mdx</span>
+      </p>
+
+      <section class="grid" aria-label="design variations">
+        {designs.map((d, i) => (
+          <a class="card" href={`/designs/${d.slug}/`}>
+            <div class="swatch-row" aria-hidden="true">
+              {d.palette.map((c) => (
+                <span class="swatch" style={`background:${c}`}></span>
+              ))}
+            </div>
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+            <h2 class="name">{d.name}</h2>
+            <p class="blurb">{d.blurb}</p>
+            <p class="label"><span>{d.label}</span><span class="arrow">→</span></p>
+          </a>
+        ))}
+      </section>
+
+      <p class="footer">
+        <span>spanishgum.github.io · drafts &amp; design</span>
+        <span><a href="/">/ home</a> · <a href="/posts/">/posts</a></span>
+      </p>
+    </main>
+  </body>
+</html>
