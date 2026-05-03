@@ -14,12 +14,15 @@
     "check": "astro check",
     "lint": "biome check .",
     "format": "biome format --write .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "validate": "pnpm check && pnpm lint && pnpm test && pnpm build && pnpm test:e2e"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/mdx": "^5.0.4",
     "@biomejs/biome": "1.9.4",
+    "@playwright/test": "^1",
     "@tailwindcss/vite": "^4",
     "astro": "^6.2.1",
     "tailwindcss": "^4",
