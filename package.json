@@ -11,11 +11,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "lint": "biome check .",
+    "format": "biome check --write ."
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/mdx": "^5.0.4",
+    "@biomejs/biome": "1.9.4",
     "@tailwindcss/vite": "^4",
     "astro": "^6.2.1",
     "tailwindcss": "^4",
