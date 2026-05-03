@@ -793,7 +793,7 @@ Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 
 **Files:**
 - Create: `lefthook.yml`
-- Modify: `package.json` (lefthook dev dep + postinstall hook)
+- Modify: `package.json` (lefthook dev dep + `prepare` script)
 
 - [ ] **Step 1: Install lefthook as dev dep (Node binary path is most portable for CI)**
 
@@ -820,7 +820,7 @@ pre-push:
 
 `stage_fixed: true` re-stages files that Biome auto-formatted so the commit captures the fixes. `--no-errors-on-unmatched` prevents Biome failing when no staged files match its supported types.
 
-- [ ] **Step 3: Add postinstall to install hooks automatically**
+- [ ] **Step 3: Add `prepare` script to install hooks automatically**
 
 Edit `package.json`:
 
@@ -1165,7 +1165,9 @@ If the hook ever doesn't fire (e.g. after a fresh clone where you skipped instal
 
 **Tailwind classes not in output.** Tailwind v4 scans imported source files. Ensure `src/styles/global.css` is imported by some page or layout.
 
-**`prepare` script doesn't run.** It's only triggered by `pnpm install`, not `pnpm install --prod` or in CI when using `--frozen-lockfile` in some contexts. CI installs the hooks fresh; local devs running `pnpm install` get them automatically.
+**`prepare` script doesn't run.** It runs after every `pnpm install`, including with `--frozen-lockfile`. The only ways to suppress it are `pnpm install --ignore-scripts` or `NODE_ENV=production`. If hooks aren't installed locally, run `pnpm exec lefthook install` directly.
+
+**Pre-commit didn't catch a bad `.astro` file.** The pre-commit Biome glob excludes `.astro` (Biome's Astro lint support is partial). Astro files are validated at pre-push by `astro check` inside `pnpm validate`. This is intentional, not an oversight.
 
 ## Adding a blog post (skeleton)
 
