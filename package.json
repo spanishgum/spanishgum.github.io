@@ -17,7 +17,8 @@
     "test": "vitest run",
     "pretest:e2e": "astro build",
     "test:e2e": "playwright test",
-    "validate": "pnpm check && pnpm lint && pnpm test && pnpm build && pnpm test:e2e"
+    "validate": "pnpm check && pnpm lint && pnpm test && pnpm build && pnpm test:e2e",
+    "prepare": "lefthook install"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
@@ -26,6 +27,7 @@
     "@playwright/test": "^1",
     "@tailwindcss/vite": "^4",
     "astro": "^6.2.1",
+    "lefthook": "^1",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4"
