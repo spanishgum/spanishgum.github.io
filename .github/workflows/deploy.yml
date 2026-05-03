@@ -5,18 +5,20 @@ on:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: false
 
+# Note: 'pnpm validate' is intentionally NOT run here. Validation
+# happens on PRs/feature branches via ci.yml, and the local pre-push
+# hook runs validate before any push to main. Re-running it here would
+# add ~30s for no marginal safety on a single-developer repo.
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -34,14 +36,17 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist   # matches astro.config.mjs outDir (Astro default)
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write       # required by actions/deploy-pages
+      id-token: write    # required by actions/deploy-pages (OIDC)
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4   # paired with upload-pages-artifact@v3 (independently versioned)
