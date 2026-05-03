@@ -15,6 +15,7 @@
     "lint": "biome check .",
     "format": "biome format --write .",
     "test": "vitest run",
+    "pretest:e2e": "astro build",
     "test:e2e": "playwright test",
     "validate": "pnpm check && pnpm lint && pnpm test && pnpm build && pnpm test:e2e"
   },

@@ -5,6 +5,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://spanishgum.github.io',
   base: '/',
+  server: { port: 4321 },
   integrations: [mdx()],
   vite: {
     plugins: [tailwindcss()],

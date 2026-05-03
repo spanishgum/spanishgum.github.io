@@ -753,16 +753,18 @@ Edit `package.json`:
 ```json
 {
   "scripts": {
+    "pretest:e2e": "astro build",
     "test:e2e": "playwright test",
     "validate": "pnpm check && pnpm lint && pnpm test && pnpm build && pnpm test:e2e"
   }
 }
 ```
 
-- [ ] **Step 5: Build first, then run e2e to verify**
+(`pretest:e2e` makes `pnpm test:e2e` self-sufficient — it builds before running. Validate's explicit `pnpm build` then becomes a redundant ~1s rebuild, accepted as the cost of having build failures surface before unit tests pass.)
+
+- [ ] **Step 5: Run e2e to verify (no pre-build needed)**
 
 ```bash
-pnpm build
 pnpm test:e2e
 ```
 Expected: 2 tests passed.
