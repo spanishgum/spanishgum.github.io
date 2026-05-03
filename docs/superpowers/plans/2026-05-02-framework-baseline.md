@@ -616,8 +616,10 @@ Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 - [ ] **Step 1: Install Vitest**
 
 ```bash
-pnpm add -D vitest@^2
+pnpm add -D vitest@^4
 ```
+
+(`vitest@^2` pulls in Vite 5 as a regular dep, creating a dual-Vite install alongside Astro's Vite 7. v4 makes Vite a peer and requires Vite 6+, deduplicating to Astro's Vite 7.)
 
 - [ ] **Step 2: Create vitest.config.ts**
 
