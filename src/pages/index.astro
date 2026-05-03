@@ -1,7 +1,442 @@
 ---
-import Base from '../layouts/Base.astro';
+import { fmtDate, samplePosts } from '../data/sample-posts';
+
+const posts = samplePosts;
+const fileCount = posts.length;
 ---
-<Base title="spanishgum">
-  <h1 class="text-3xl font-semibold">v2 under construction</h1>
-  <p class="mt-4 text-neutral-600">Pipeline first; pretty later.</p>
-</Base>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>spanishgum</title>
+    <meta name="description" content="A notebook for software, AI, and home networks." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0f0a'/%3E%3Crect x='2' y='3' width='10' height='1' fill='%234afa7b'/%3E%3Crect x='2' y='6' width='6' height='1' fill='%234afa7b'/%3E%3Crect x='2' y='9' width='2' height='3' fill='%234afa7b'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #0a0f0a;
+        --bg-2: #0e1410;
+        --fg: #d8e8d8;
+        --fg-dim: #8aa890;
+        --green: #4afa7b;
+        --green-dim: #2bb05a;
+        --amber: #e8c547;
+        --magenta: #d65db1;
+        --cyan: #58c4dd;
+        --gray: #6b7c6f;
+        --error: #ff5d5d;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: radial-gradient(ellipse at 50% 0%, #0e1812 0%, #060906 100%);
+        color: var(--fg);
+        font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+        font-size: 14px;
+        line-height: 1.55;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        padding-bottom: 56px;
+        font-feature-settings: 'ss01', 'ss02';
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0,0,0,0) 0px,
+          rgba(0,0,0,0) 2px,
+          rgba(0,0,0,0.22) 3px,
+          rgba(0,0,0,0) 4px
+        );
+        pointer-events: none;
+        z-index: 100;
+        mix-blend-mode: multiply;
+      }
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 50% 30%, rgba(74, 250, 123, 0.05) 0%, transparent 55%),
+          radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(0,0,0,0.55) 100%);
+        pointer-events: none;
+        z-index: 99;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .chrome {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-bottom: 1px solid rgba(74, 250, 123, 0.18);
+        background: linear-gradient(to bottom, rgba(74, 250, 123, 0.05), transparent);
+        position: sticky;
+        top: 0;
+        z-index: 80;
+        backdrop-filter: blur(6px);
+      }
+      .chrome .dot { width: 12px; height: 12px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4); }
+      .chrome .red { background: #ff5f56; }
+      .chrome .yellow { background: #ffbd2e; }
+      .chrome .green { background: #27c93f; }
+      .chrome .title {
+        margin: 0 auto;
+        font-size: 12px;
+        color: var(--fg-dim);
+        letter-spacing: 0.04em;
+      }
+      .chrome .nav {
+        display: flex;
+        gap: 16px;
+        font-size: 12px;
+      }
+      .chrome .nav a {
+        color: var(--fg-dim);
+        text-decoration: none;
+        border-bottom: 1px dashed transparent;
+      }
+      .chrome .nav a:hover { color: var(--green); border-bottom-color: var(--green); }
+
+      .term {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 28px 24px 60px;
+        position: relative;
+        z-index: 1;
+      }
+      @keyframes bootIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .login {
+        color: var(--gray);
+        font-size: 13px;
+        margin: 0 0 18px;
+      }
+      .banner-heading {
+        margin: 12px 0 4px;
+        line-height: 1;
+        font-weight: 700;
+      }
+      .banner {
+        font-family: 'IBM Plex Mono', monospace;
+        font-weight: 700;
+        line-height: 1;
+        white-space: pre;
+        color: var(--green);
+        text-shadow: 0 0 10px rgba(74, 250, 123, 0.55), 0 0 1px rgba(74, 250, 123, 0.9);
+        margin: 0;
+        font-size: clamp(7px, 1.45vw, 13px);
+        overflow-x: auto;
+      }
+      .tagline {
+        color: var(--fg-dim);
+        margin: -2px 0 26px;
+        font-style: italic;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .tagline .blink {
+        color: var(--amber);
+        animation: blink 1.4s steps(2) infinite;
+      }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      .prompt-line {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .prompt {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .prompt .user { color: var(--green); font-weight: 600; }
+      .prompt .at { color: var(--gray); }
+      .prompt .host { color: var(--cyan); font-weight: 600; }
+      .prompt .colon { color: var(--gray); }
+      .prompt .path { color: var(--magenta); }
+      .prompt .arrow { color: var(--green); }
+      .cmd { color: var(--fg); }
+      .cmd .flag { color: var(--amber); }
+      .cmd .arg { color: var(--cyan); }
+      .out {
+        color: var(--fg);
+        white-space: pre-wrap;
+        margin: 4px 0 0;
+        font-size: 13.5px;
+      }
+      .out .dim { color: var(--gray); }
+      .out .accent { color: var(--green); }
+      .out .warn { color: var(--amber); }
+      .out .err { color: var(--error); }
+      .out a { color: inherit; text-decoration: none; }
+
+      .listing {
+        margin: 4px 0 0;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 13px;
+      }
+      .listing .total { color: var(--gray); }
+      .listing .row {
+        display: grid;
+        grid-template-columns: 11ch 3ch 7ch 7ch 6ch 12ch 1fr;
+        column-gap: 10px;
+        padding: 1px 6px;
+        margin-left: -6px;
+        border-radius: 2px;
+        text-decoration: none;
+        color: var(--fg);
+        align-items: baseline;
+      }
+      .listing .row:hover {
+        background: rgba(74, 250, 123, 0.12);
+        outline: 1px dashed rgba(74, 250, 123, 0.35);
+      }
+      .listing .row:hover .name { color: var(--green); }
+      .listing .row:hover .name::before { content: '> '; color: var(--green); }
+      .listing .row .name::before { content: '  '; }
+      .listing .perm { color: var(--gray); }
+      .listing .links { color: var(--gray); text-align: right; }
+      .listing .owner { color: var(--cyan); }
+      .listing .group { color: var(--magenta); }
+      .listing .size { color: var(--amber); text-align: right; }
+      .listing .date { color: var(--gray); white-space: nowrap; }
+      .listing .name { color: var(--fg); }
+      .listing .name .tag { color: var(--green-dim); margin-left: 8px; }
+      @media (max-width: 720px) {
+        .listing .row {
+          grid-template-columns: 1fr;
+          row-gap: 0;
+          padding: 8px 6px;
+          border-bottom: 1px dashed rgba(74,250,123,0.12);
+        }
+        .listing .perm, .listing .links, .listing .owner, .listing .group { display: none; }
+        .listing .size, .listing .date { display: inline; text-align: left; }
+      }
+
+      .neofetch {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 26px;
+        margin: 8px 0 0;
+        padding: 8px 0;
+      }
+      .neofetch .ascii {
+        white-space: pre;
+        color: var(--green);
+        font-size: 11px;
+        line-height: 1.05;
+        text-shadow: 0 0 8px rgba(74,250,123,0.45);
+      }
+      .neofetch dl {
+        margin: 0;
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 3px 18px;
+        font-size: 13.5px;
+      }
+      .neofetch dt { color: var(--green); font-weight: 600; }
+      .neofetch dd { margin: 0; color: var(--fg); }
+      .neofetch .bar {
+        display: inline-block;
+        width: 14ch;
+        background: rgba(74,250,123,0.12);
+        position: relative;
+        height: 0.85em;
+        vertical-align: -2px;
+        margin-right: 8px;
+      }
+      .neofetch .bar::after {
+        content: '';
+        position: absolute;
+        inset: 0 var(--rem,40%) 0 0;
+        background: var(--green);
+        box-shadow: 0 0 6px rgba(74,250,123,0.6);
+      }
+
+      @media (max-width: 720px) {
+        .neofetch { grid-template-columns: 1fr; }
+        .neofetch .ascii { display: none; }
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 9px;
+        height: 1em;
+        background: var(--green);
+        vertical-align: -2px;
+        animation: blink 1.05s steps(2) infinite;
+        box-shadow: 0 0 8px rgba(74, 250, 123, 0.8);
+      }
+
+      .statusbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--green);
+        color: #061106;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 0;
+        display: flex;
+        gap: 0;
+        align-items: stretch;
+        z-index: 90;
+        font-feature-settings: 'tnum';
+        letter-spacing: 0.02em;
+      }
+      .statusbar .seg { padding: 4px 12px; }
+      .statusbar .mode { background: #061106; color: var(--green); padding: 4px 14px; font-weight: 700; }
+      .statusbar .branch { background: rgba(0,0,0,0.18); }
+      .statusbar .file { background: rgba(0,0,0,0.10); }
+      .statusbar .right { margin-left: auto; display: flex; }
+      .statusbar .right .seg { background: rgba(0,0,0,0.18); border-left: 1px solid rgba(6,17,6,0.3); }
+      .statusbar .right .pos { background: var(--amber); color: #1a1308; }
+
+      .term { animation: bootIn 0.5s ease-out both, flicker 8s 1s infinite; }
+      @keyframes flicker {
+        0%, 100% { opacity: 1; }
+        47% { opacity: 1; }
+        48% { opacity: 0.94; }
+        49% { opacity: 1; }
+        80% { opacity: 1; }
+        81% { opacity: 0.96; }
+        82% { opacity: 1; }
+      }
+
+      .links-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 6px 0 0; font-size: 13.5px; }
+      .links-row a {
+        color: var(--cyan);
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(88,196,221,0.4);
+      }
+      .links-row a:hover { color: var(--green); border-bottom-color: var(--green); }
+      .links-row span { color: var(--gray); }
+    </style>
+  </head>
+  <body>
+    <header class="chrome">
+      <span class="dot red" aria-hidden="true"></span>
+      <span class="dot yellow" aria-hidden="true"></span>
+      <span class="dot green" aria-hidden="true"></span>
+      <span class="title">bash — spanishgum@homelab — 92×32</span>
+      <nav class="nav">
+        <a href="/posts/">/posts/</a>
+        <a href="https://github.com/spanishgum">github</a>
+      </nav>
+    </header>
+
+    <main class="term">
+      <p class="login">Last login: Sat May  2 09:14:21 2026 on ttys002 — welcome back.</p>
+
+      <h1 class="banner-heading">
+        <span class="sr-only">spanishgum — a notebook for software, AI, and home networks</span>
+        <pre class="banner" aria-hidden="true">
+███████╗██████╗  █████╗ ███╗   ██╗██╗███████╗██╗  ██╗ ██████╗ ██╗   ██╗███╗   ███╗
+██╔════╝██╔══██╗██╔══██╗████╗  ██║██║██╔════╝██║  ██║██╔════╝ ██║   ██║████╗ ████║
+███████╗██████╔╝███████║██╔██╗ ██║██║███████╗███████║██║  ███╗██║   ██║██╔████╔██║
+╚════██║██╔═══╝ ██╔══██║██║╚██╗██║██║╚════██║██╔══██║██║   ██║██║   ██║██║╚██╔╝██║
+███████║██║     ██║ ╚████║██║ ╚████║██║███████║██║  ██║╚██████╔╝╚██████╔╝██║ ╚═╝ ██║
+╚══════╝╚═╝     ╚═╝  ╚═══╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝</pre>
+      </h1>
+      <p class="tagline">// a notebook for software, AI, and home networks <span class="blink">▮</span></p>
+
+      <section aria-label="whoami">
+        <p class="prompt-line"><span class="prompt"><span class="user">spanishgum</span><span class="at">@</span><span class="host">homelab</span><span class="colon">:</span><span class="path">~</span><span class="arrow"> ❯ </span></span><span class="cmd">whoami --verbose</span></p>
+        <p class="out">Adam — software developer. Spends weekends coaxing language models into being useful, and weekdays trying to keep three small servers from setting themselves on fire. <span class="dim"># reasonable hobbies, allegedly.</span></p>
+      </section>
+
+      <section aria-label="recent posts">
+        <p class="prompt-line"><span class="prompt"><span class="user">spanishgum</span><span class="at">@</span><span class="host">homelab</span><span class="colon">:</span><span class="path">~</span><span class="arrow"> ❯ </span></span><span class="cmd">ls <span class="flag">-la</span> <span class="arg">posts/</span></span></p>
+        <div class="listing" role="list">
+          <div class="total">total {fileCount}</div>
+          {posts.map((post) => {
+            const { mon, day, time } = fmtDate(post.date);
+            return (
+              <a href={`/posts/${post.slug}/`} class="row" role="listitem">
+                <span class="perm">-rw-r--r--</span>
+                <span class="links">1</span>
+                <span class="owner">adam</span>
+                <span class="group">staff</span>
+                <span class="size">{post.size}</span>
+                <span class="date">{mon} {day} {time}</span>
+                <span class="name">{post.slug}.md<span class="tag">[{post.tags.join(' · ')}]</span></span>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+
+      <section aria-label="system info">
+        <p class="prompt-line"><span class="prompt"><span class="user">spanishgum</span><span class="at">@</span><span class="host">homelab</span><span class="colon">:</span><span class="path">~</span><span class="arrow"> ❯ </span></span><span class="cmd">neofetch</span></p>
+        <div class="neofetch">
+          <pre class="ascii">         .--.
+        |o_o |
+        |:_/ |
+       //   \ \
+      (|     | )
+     /'\_   _/`\
+     \___)=(___/</pre>
+          <dl>
+            <dt>OS</dt><dd>spanishgum.dev v2.0.1 (astro)</dd>
+            <dt>Host</dt><dd>github.io · static · edge cached</dd>
+            <dt>Kernel</dt><dd>Astro 6.2.1 · Tailwind 4 · Node 22</dd>
+            <dt>Uptime</dt><dd>7 years, 3 months — and counting</dd>
+            <dt>Posts</dt><dd>{posts.length} live · 0 drafts · 1 in progress</dd>
+            <dt>Reading</dt><dd>Designing Data-Intensive Applications, again</dd>
+            <dt>Currently</dt><dd>training a tiny model on every commit message I&apos;ve ever written</dd>
+            <dt>Disk</dt><dd><span class="bar" style="--rem: 32%"></span><span class="dim">68% used · 412G of 600G</span></dd>
+          </dl>
+        </div>
+      </section>
+
+      <section aria-label="links">
+        <p class="prompt-line"><span class="prompt"><span class="user">spanishgum</span><span class="at">@</span><span class="host">homelab</span><span class="colon">:</span><span class="path">~</span><span class="arrow"> ❯ </span></span><span class="cmd">cat <span class="arg">links.txt</span></span></p>
+        <p class="links-row">
+          <a href="https://github.com/spanishgum">github</a>
+          <span>·</span>
+          <a href="/posts/">posts</a>
+          <span>·</span>
+          <a href="mailto:spanishgum@gmail.com">mail</a>
+        </p>
+      </section>
+
+      <p class="prompt-line" style="margin-top: 24px;">
+        <span class="prompt"><span class="user">spanishgum</span><span class="at">@</span><span class="host">homelab</span><span class="colon">:</span><span class="path">~</span><span class="arrow"> ❯ </span></span>
+        <span class="cursor" aria-hidden="true"></span>
+      </p>
+    </main>
+
+    <footer class="statusbar" role="contentinfo">
+      <span class="seg mode">NORMAL</span>
+      <span class="seg branch">  main</span>
+      <span class="seg file">~/posts/index.md</span>
+      <span class="right">
+        <span class="seg">utf-8</span>
+        <span class="seg">unix</span>
+        <span class="seg">md</span>
+        <span class="seg pos">L 42:8</span>
+      </span>
+    </footer>
+  </body>
+</html>
