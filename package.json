@@ -13,7 +13,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "lint": "biome check .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
@@ -22,6 +23,7 @@
     "@tailwindcss/vite": "^4",
     "astro": "^6.2.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2"
   }
 }
