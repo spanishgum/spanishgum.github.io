@@ -24,11 +24,11 @@
     "@astrojs/check": "^0.9.10",
     "@astrojs/mdx": "^8.0.1",
     "@biomejs/biome": "1.9.4",
-    "@playwright/test": "^1",
-    "@tailwindcss/vite": "^4",
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.2",
     "lefthook": "^1",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5",
     "vitest": "^4"
   }
