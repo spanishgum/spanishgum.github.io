@@ -4,7 +4,7 @@ You are working on Adam's personal site (`spanishgum.github.io`). Adam is the co
 
 ## Tech stack
 
-Astro 6, TypeScript strict, Tailwind v4, MDX content collections, Biome, Vitest, Playwright, lefthook, pnpm 9, Node 22, GitHub Actions, GitHub Pages.
+Astro 7, TypeScript strict, Tailwind v4, MDX content collections, Biome, Vitest, Playwright, lefthook, pnpm 9, Node 22, GitHub Actions, GitHub Pages.
 
 ## Operating rules
 
