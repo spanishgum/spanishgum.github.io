@@ -393,7 +393,9 @@ a:hover {
   border-radius: 30px;
   font-size: 1.05rem;
   box-shadow: 0 10px 24px -14px rgba(154, 107, 47, 0.9);
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
 }
 .ledger-post .cta:hover {
   transform: translateY(-2px);
