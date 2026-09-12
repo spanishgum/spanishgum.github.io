@@ -27,7 +27,7 @@
     "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.2",
-    "lefthook": "^1",
+    "lefthook": "^2.1.12",
     "tailwindcss": "^4.3.3",
     "typescript": "^5",
     "vitest": "^5.0.0"
