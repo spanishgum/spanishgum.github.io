@@ -30,6 +30,6 @@
     "lefthook": "^1",
     "tailwindcss": "^4.3.3",
     "typescript": "^5",
-    "vitest": "^4"
+    "vitest": "^5.0.0"
   }
 }
