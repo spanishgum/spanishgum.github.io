@@ -31,5 +31,13 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "vitest": "^5.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "fast-uri": "^3.1.7",
+      "svgo": "^4.1.0",
+      "smol-toml": "^1.8.0",
+      "yaml": "^2.9.1"
+    }
   }
 }
