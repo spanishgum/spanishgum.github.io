@@ -12,14 +12,36 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const wide = post.data.wide;
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
 ---
-<Base title={`${post.data.title} — spanishgum`}>
-  <article class="prose">
-    <h1 class="text-3xl font-semibold">{post.data.title}</h1>
-    <p class="text-neutral-500 text-sm mt-1">
-      {post.data.date.toISOString().slice(0, 10)}
-    </p>
-    <div class="mt-6">
+<Base
+  title={`${post.data.title} — spanishgum`}
+  description={post.data.description}
+  mainClass={wide ? 'site-main--wide' : undefined}
+>
+  <article class:list={[{ 'post--wide': wide }]}>
+    <header class="post-head">
+      <p class="meta">
+        <span class="date">{fmtDate(post.data.date)}</span>
+      </p>
+      <h1>{post.data.title}</h1>
+      {post.data.tags.length > 0 && (
+        <p class="tags">
+          {post.data.tags.map((tag) => (
+            <span class="tag-pill">{tag}</span>
+          ))}
+        </p>
+      )}
+    </header>
+    <div class="prose">
       <Content />
     </div>
   </article>

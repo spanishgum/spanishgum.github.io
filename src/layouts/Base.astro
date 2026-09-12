@@ -3,8 +3,16 @@ import '../styles/global.css';
 
 interface Props {
   title: string;
+  description?: string;
+  // Optional modifier for <main>. Used by the wide left-anchored post canvas
+  // so figures can bleed right while plain pages keep the centered column.
+  mainClass?: string | undefined;
 }
-const { title } = Astro.props;
+const {
+  title,
+  description = 'Field notes on software, AI, and the systems Adam Stallard builds.',
+  mainClass,
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -13,10 +21,39 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23f4ead6'/%3E%3Crect x='2' y='3' width='10' height='1.4' fill='%239a6b2f'/%3E%3Crect x='2' y='6' width='7' height='1.4' fill='%232c2017'/%3E%3Crect x='2' y='9' width='9' height='1.4' fill='%232c2017'/%3E%3Crect x='2' y='12' width='5' height='1.4' fill='%232c2017'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-neutral-50 text-neutral-900 font-sans">
-    <main class="max-w-2xl mx-auto p-8">
+  <body>
+    <header class="site-header">
+      <div class="bar">
+        <a href="/" class="brand">spanishgum</a>
+        <nav>
+          <a href="/posts/">posts</a>
+          <a href="https://github.com/spanishgum">github</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class:list={['site-main', mainClass]}>
       <slot />
     </main>
+
+    <footer class="site-footer">
+      <div class="bar">
+        <span>&copy; {new Date().getFullYear()} Adam Stallard</span>
+        <a href="https://github.com/spanishgum">github</a>
+        <a href="mailto:spanishgum@gmail.com">mail</a>
+      </div>
+    </footer>
   </body>
 </html>

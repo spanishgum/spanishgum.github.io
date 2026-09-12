@@ -21,3 +21,6 @@ test-results/
 .env
 .env.local
 .env.*.local
+
+.claude/
+.remember/

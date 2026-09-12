@@ -1,3 +1,406 @@
 @import "tailwindcss";
 
 @source not "../../docs";
+
+/* ============================================================
+   Notebook design system — "Structured Field Notes"
+   An engineer's ledger: paper stock, serif type, mono labels.
+   ============================================================ */
+:root {
+  --paper: #f4ead6;
+  --paper-lift: #f6efe2;
+  --ink: #2c2017;
+  --ink-soft: #5a4836;
+  --gold: #9a6b2f;
+  --rule: #d8c6a4;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--rule);
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: var(--gold);
+}
+
+/* ---- Site nav header --------------------------------------- */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-lift);
+}
+.site-header .bar {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0.9rem clamp(1rem, 4vw, 2rem);
+  display: flex;
+  align-items: baseline;
+  gap: 1.4rem;
+}
+.site-header .brand {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.site-header .brand:hover {
+  color: var(--gold);
+}
+.site-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+.site-header nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+.site-header nav a:hover {
+  color: var(--gold);
+}
+
+/* ---- Page shell -------------------------------------------- */
+.site-main {
+  flex: 1;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2rem);
+}
+
+/* ---- Site footer ------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  background: var(--paper-lift);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+.site-footer .bar {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.1rem clamp(1rem, 4vw, 2rem);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.site-footer a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: var(--gold);
+}
+
+/* ---- Masthead (home) --------------------------------------- */
+.masthead {
+  margin: 0 0 2.4rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+.masthead h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+.masthead .positioning {
+  margin: 0.6rem 0 0;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+/* ---- Post list (home + /posts) ----------------------------- */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.post-list li {
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.post-list li:first-child {
+  padding-top: 0;
+}
+.post-entry .meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem;
+}
+.post-entry .meta .date {
+  text-transform: uppercase;
+}
+.post-entry .meta .tags {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+.tag-pill {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  background: var(--paper-lift);
+  white-space: nowrap;
+}
+.post-entry h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.post-entry h2 a {
+  text-decoration: none;
+  color: var(--ink);
+}
+.post-entry h2 a:hover {
+  color: var(--gold);
+}
+.post-entry .excerpt {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 64ch;
+}
+.list-empty {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---- Post detail page header ------------------------------- */
+.post-head {
+  margin: 0 0 2rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.post-head h1 {
+  margin: 0.5rem 0 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+.post-head .meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+}
+.post-head .meta .date {
+  text-transform: uppercase;
+}
+.post-head .tags {
+  margin-top: 0.9rem;
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+/* ---- Generic serif prose (no @tailwindcss/typography) ------ */
+.prose {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.prose > * + * {
+  margin-top: 1.1rem;
+}
+.prose p {
+  max-width: 64ch;
+}
+.prose h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  margin: 2.2rem 0 0.7rem;
+}
+.prose h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 1.8rem 0 0.6rem;
+}
+.prose a {
+  color: var(--gold);
+  text-decoration-color: var(--rule);
+}
+.prose strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+.prose blockquote {
+  margin: 1.4rem 0;
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  border-left: 3px solid var(--gold);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.prose code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  background: var(--paper-lift);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.05rem 0.3rem;
+}
+.prose pre {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  background: var(--paper-lift);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.prose ul,
+.prose ol {
+  max-width: 64ch;
+  padding-left: 1.4rem;
+}
+
+/* ============================================================
+   "Heirloom ledger" styling for genealogy / archival posts.
+   Scoped to .ledger-post so it never touches the rest of the site.
+   ============================================================ */
+.ledger-post {
+  --paper: #f4ead6;
+  --ink: #2c2017;
+  --ink-soft: #5a4836;
+  --gold: #9a6b2f;
+  --rule: #d8c6a4;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 2.4rem clamp(1rem, 4vw, 2.6rem) 3rem;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  box-shadow: 0 18px 40px -26px rgba(44, 32, 23, 0.5);
+}
+.ledger-post .dek {
+  font-style: italic;
+  font-size: 1.32rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  margin: 0 0 1.6rem;
+  max-width: 60ch;
+}
+.ledger-post p {
+  margin: 0 0 1.1rem;
+  max-width: 64ch;
+}
+.ledger-post h2 {
+  font-weight: 600;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+  margin: 2.2rem 0 0.7rem;
+}
+.ledger-post strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+.ledger-post blockquote {
+  margin: 1.4rem 0;
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  border-left: 3px solid var(--gold);
+  font-style: italic;
+  font-size: 1.18rem;
+}
+.ledger-post figure {
+  margin: 1.8rem auto;
+  text-align: center;
+  max-width: 340px;
+}
+.ledger-post figure img {
+  width: 100%;
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 30px -20px rgba(44, 32, 23, 0.6);
+  background: #fff;
+}
+.ledger-post figcaption {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+.ledger-post .cta {
+  display: inline-block;
+  margin: 1.6rem 0 0.6rem;
+  padding: 0.85rem 1.6rem;
+  background: var(--gold);
+  color: var(--paper);
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  box-shadow: 0 10px 24px -14px rgba(154, 107, 47, 0.9);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.ledger-post .cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -14px rgba(154, 107, 47, 0.95);
+}
+.ledger-post .fineprint {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.4rem;
+}
